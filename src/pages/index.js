@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 
 import Layout from "../components/layout";
 
+import "../styles.scss";
+
 const IndexPage = () => (
   <Layout>
     <h1>You're on the landing page</h1>
