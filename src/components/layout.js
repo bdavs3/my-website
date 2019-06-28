@@ -1,5 +1,4 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
 import Footer from "./footer";
@@ -8,19 +7,9 @@ import Footer from "./footer";
 import "../reset.css";
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <div className="container">
-      <Header title={data.site.siteMetadata.title} />
+      <Header />
       <main>{children}</main>
       <Footer />
     </div>

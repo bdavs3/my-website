@@ -4,12 +4,12 @@ import { Link } from "gatsby";
 import Head from "../components/head";
 import Layout from "../components/layout";
 
-const SecondPage = () => (
+const Blog = () => (
   <Layout>
-    <Head title="Page 2" />
-    <h1>Hi from the second page</h1>
+    <Head title="Blog" />
+    <h1>Hi from the blog</h1>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 );
 
-export default SecondPage;
+export default Blog;
