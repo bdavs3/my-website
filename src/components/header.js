@@ -2,12 +2,14 @@ import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 
+import "../styles.scss";
+
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
       fileName: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 100, height: 100) {
+          fixed(width: 210, height: 61) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -17,16 +19,18 @@ const Header = () => {
 
   return (
     <div>
-      <header>
+      <header id="test">
         <nav className="navbar" role="navigation" aria-label="main-navigation">
           <div className="navbar-brand">
-            <Img fixed={data.fileName.childImageSharp.fixed} alt="" />
+            <Link to="/">
+              <Img fixed={data.fileName.childImageSharp.fixed} alt="" />
+            </Link>
 
             <Link
               role="button"
               className="navbar-burger burger"
-              aria-label="menu"
               aria-expanded="false"
+              aria-label="menu"
               data-target="navbarBasic"
             >
               <span aria-hidden="true"></span>
@@ -42,14 +46,14 @@ const Header = () => {
               <Link className="navbar-item" to="/blog">
                 Blog
               </Link>
-              <Link className="navbar-item" to="/">
+              <Link className="navbar-item" to="/reading-corner">
                 Reading Corner
               </Link>
             </div>
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
-                  <button className="button is-primary">
+                  <button className="button is-info">
                     <strong>Sign up</strong>
                   </button>
                   <button className="button is-light">Log in</button>

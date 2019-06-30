@@ -1,5 +1,9 @@
 # My Personal Website
 
+[Description](#description)\
+[Road-blocks](#road-blocks)\
+[Things I Learned](#things-i-learned)
+
 ### Description
 
 This repository contains the code for my personal website, which I currently have a lot of mismatched plans for. The site is currently being built using [Gatsby](https://www.gatsbyjs.org/), [React](https://reactjs.org/), and [BulmaCSS](https://bulma.io/).\
@@ -25,7 +29,7 @@ _I will be documenting things that I struggle with here_
 - and more!
   I was struggling to get my first Gatsby image to work, as my GraphQL query wasn't picking up the file path I had defined. It turns out the issue was that using a relative path is actually way easier than I thought – I forgot that in `gatsby-config.js`, I had already set up a path to the `images` folder [Gatsby Source Filesystem](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/):
 
-```json
+```js
 {
   "resolve": `gatsby-source-filesystem`,
   "options": {
