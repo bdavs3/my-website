@@ -3,4 +3,14 @@
 $title-color: #000000;
 $family-primary: Verdana;
 
+#mobileHeaderButton {
+  border-style: none;
+  &:focus {
+    outline: none !important;
+  }
+  &:hover {
+    background-color: white;
+  }
+}
+
 @import "~bulma/bulma.sass";

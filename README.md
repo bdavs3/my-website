@@ -17,7 +17,7 @@ Some things I'd possibly like on the site are:
 
 ### Road-blocks
 
-_I will be documenting things that I struggle with here_
+_I will be documenting things that I struggle with here._
 
 ##### Working with Gatsby Images
 
@@ -41,6 +41,52 @@ _I will be documenting things that I struggle with here_
 
 So, when defining a relative path, it is actually relative to `/src/images/`, not whatever file you are making the query from.
 
+##### Formatting Logo in Header
+
+Building a header component with Bulma is very easy, but since I used a Gatsby `<Link>` and `<Img>` for the main logo, it was being formatted in an unexpected way. I ended up removing `className="navbar-item"` from the link, which fixed the formatting. I may need to revisit later.
+
+##### useStaticQuery hook
+
+In [State is for classes not functions](#state-is-for-classes-not-functions), I described why I changed my header from a function to a class. Okay, so now that I had a class, `useStaticQuery` became an issue when I was trying to grab the logo image with graphql. You can only use a [hook](https://reactjs.org/docs/hooks-intro.html) inside a function. The way I got around this is to create a new file, `image.js`, which was a function that utilized `useStaticQuery` and returned an `<Img />`. This way, I was able to import this into `header.js`, a stateful class that wouldn't allow usage of the hook.
+
 ### Things I Learned
 
-_I will be documenting major revelations that I have here_
+_I will be documenting major revelations that I have here._
+
+##### State is for classes not functions
+
+This was super obvious to me once I tried using state within a normal Gatsby React component, which I usually do like:
+
+```js
+const Example = () => {
+  return (
+    <div>
+      <p>Hey I'm a component!
+      <button>Click me!</button>
+    </div>
+  );
+};
+```
+
+I tried writing a constructor for my header.js file in order to set up state in the usual way:
+
+```js
+const Header = () => {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      key: value
+    };
+  }
+  ...
+};
+```
+
+Whoops! A constructor is only for a class. Okay, so any time I need to use state, I also need to set up a component like this:
+
+```js
+class Header extends React {
+  ...
+};
+```
