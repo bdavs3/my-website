@@ -27,7 +27,7 @@ class Header extends React.Component {
               </Link>
 
               <button
-                id="mobileHeaderButton"
+                id="mobileHeaderToggle"
                 onClick={this._toggleMenu}
                 className={`navbar-burger burger ${
                   this.state.menuExpanded ? "is-active" : ""

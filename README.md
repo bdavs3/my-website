@@ -49,6 +49,39 @@ Building a header component with Bulma is very easy, but since I used a Gatsby `
 
 In [State is for classes not functions](#state-is-for-classes-not-functions), I described why I changed my header from a function to a class. Okay, so now that I had a class, `useStaticQuery` became an issue when I was trying to grab the logo image with graphql. You can only use a [hook](https://reactjs.org/docs/hooks-intro.html) inside a function. The way I got around this is to create a new file, `image.js`, which was a function that utilized `useStaticQuery` and returned an `<Img />`. This way, I was able to import this into `header.js`, a stateful class that wouldn't allow usage of the hook.
 
+##### Jest / Enzyme testing an element's classes inside a shallow wrapper
+
+This was super weird and frustrating. I was writing header tests and eventually got to the point where I wanted to make sure an `is-active` class was being added to a couple of things in the header when the burger icon was clicked, thus changing the state. I swear to god that the first time I wrote a test, nothing unexpected went down:
+
+```js
+it("has a dropdown toggle that rotates between a burger and an X upon state change", () => {
+  const dropdownMenu = header.find("#mobileHeaderToggle");
+  dropdownMenu.props().onClick();
+  expect(dropdownMenu.hasClass("is-active")); // I could swear this worked at first!
+});
+```
+
+But then, I wrote another test to do basically the same thing for the actual menu display and all of the sudden, I could not get the "is-active" class to show up anywhere for the life of me. After a long, frustrating time of tinkering, I realize that I could get it to work like this:
+
+```js
+it("has a dropdown toggle that rotates between a burger and an X upon state change", () => {
+  const dropdownMenu = header.find("#mobileHeaderToggle");
+  dropdownMenu.props().onClick();
+  dropdownMenu = header.find("#mobileHeaderToggle"); // the added line
+  expect(dropdownMenu.hasClass("is-active"));
+});
+```
+
+This is obviously really hacky, and not what I wanted, but at least it made me realize that the element was not ever updating from its initialized form. Aha!–I thought... I just need to use `let` instead of `const`. That didn't work. Looking through some docs made me think that I needed to do a `header.update()` after `onClick` was called – That didn't work either. Very weird, and I eventually figured that it was best to just move on. I settled on doing this:
+
+```js
+const dropdownMenu = header.find("#mobileHeaderToggle");
+dropdownMenu.props().onClick();
+expect(header.exists(".is-active"));
+```
+
+to test both classes being added at once. This works because I'm not testing it through the dropdownMenu variable any longer. There are a lot of things that I fail to understand going on behind the scenes here. I will need some more experienced eyes to tell me where I was going wrong.
+
 ### Things I Learned
 
 _I will be documenting major revelations that I have here._
@@ -90,3 +123,17 @@ class Header extends React {
   ...
 };
 ```
+
+##### Adding more stuff to a commit
+
+Let's say you write a nice commit message in Vim, but you forgot to mention one thing... simply run
+
+```sh
+git commit --amend
+```
+
+and you'll be brought back to vim to add or change anything you need without making a brand new commit
+
+##### Simulating events in Enzyme
+
+Apparently using e.g. `button.simulate("click")` instead of `button.props().onClick()` is [bad](https://github.com/airbnb/enzyme/issues/1606)
