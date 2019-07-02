@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import Image from "./image";
+import HeaderLogo from "./header-logo";
 
 class Header extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class Header extends React.Component {
           >
             <div className="navbar-brand">
               <Link to="/">
-                <Image />
+                <HeaderLogo />
               </Link>
 
               <button

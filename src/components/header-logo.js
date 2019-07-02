@@ -2,12 +2,12 @@ import React from "react";
 import Img from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 
-const Image = () => {
+const HeaderLogo = () => {
   const data = useStaticQuery(graphql`
     query {
       fileName: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 210, height: 61) {
+          fixed(width: 210, height: 60) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -15,7 +15,7 @@ const Image = () => {
     }
   `);
 
-  return <Img fixed={data.fileName.childImageSharp.fixed} alt="" />;
+  return <Img fixed={data.fileName.childImageSharp.fixed} alt="logo" />;
 };
 
-export default Image;
+export default HeaderLogo;
