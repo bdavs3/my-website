@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 
 import HeaderLogo from "./header-logo";
 
+import "./styles/header.scss";
+
 class Header extends React.Component {
   constructor(props) {
     super(props);

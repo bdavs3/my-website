@@ -19,15 +19,19 @@ Some things I'd possibly like on the site are:
 
 _I will be documenting things that I struggle with here._
 
-##### Working with Gatsby Images
+<details><summary>Working with Gatsby Images</summary>
+<p>
+<a href="https://www.gatsbyjs.org/docs/working-with-images/">Gatsby images</a> are super nice, as there are a few plugins that combine to:
+</p>
 
-[Gatsby images](https://www.gatsbyjs.org/docs/working-with-images/) are super nice, as there are a few plugins that combine to:
-
-- Load optimal image sizes across different devices
-- Hold image position while the page loads so images don't jump around as they come into existence
-- "Blur up" the image or use a traced placeholder SVG to hold them image's place while the page loads
-- and more!
-  I was struggling to get my first Gatsby image to work, as my GraphQL query wasn't picking up the file path I had defined. It turns out the issue was that using a relative path is actually way easier than I thought – I forgot that in `gatsby-config.js`, I had already set up a path to the `images` folder [Gatsby Source Filesystem](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/):
+<ul>
+  <li>Load optimal image sizes across different devices</li>
+  <li>Hold image position while the page loads so images don't jump around as they come into existence</li>
+  <li>"Blur up" the image or use a traced placeholder SVG to hold them image's place while the page loads</li>
+  <li>and more!</li>
+</ul>
+<p>
+I was struggling to get my first Gatsby image to work, as my GraphQL query wasn't picking up the file path I had defined. It turns out the issue was that using a relative path is actually way easier than I thought – I forgot that in <b>gatsby-config.js</b>, I had already set up a path to the <b>images</b> folder <a href="https://www.gatsbyjs.org/packages/gatsby-source-filesystem/">Gatsby Source Filesystem</a>:
 
 ```js
 {
@@ -39,19 +43,28 @@ _I will be documenting things that I struggle with here._
 }
 ```
 
-So, when defining a relative path, it is actually relative to `/src/images/`, not whatever file you are making the query from.
+So, when defining a relative path, it is actually relative to <b>/src/images/</b>, not whatever file you are making the query from.
 
-##### Formatting Logo in Header
+</p>
+</details>
 
-Building a header component with Bulma is very easy, but since I used a Gatsby `<Link>` and `<Img>` for the main logo, it was being formatted in an unexpected way. I ended up removing `className="navbar-item"` from the link, which fixed the formatting. I may need to revisit later.
+<details><summary>Formatting Logo in Header</summary>
 
-##### useStaticQuery hook
+<p>
+Building a header component with Bulma is very easy, but since I used a Gatsby <b>&lt;Link /&gt;</b> and <b>&lt;Img /&gt;</b> for the main logo, it was being formatted in an unexpected way. I ended up removing <b>className="navbar-item"</b> from the link, which fixed the formatting. I may need to revisit later.
+</p>
+</details>
 
-In [State is for classes not functions](#state-is-for-classes-not-functions), I described why I changed my header from a function to a class. Okay, so now that I had a class, `useStaticQuery` became an issue when I was trying to grab the logo image with graphql. You can only use a [hook](https://reactjs.org/docs/hooks-intro.html) inside a function. The way I got around this is to create a new file, `image.js`, which was a function that utilized `useStaticQuery` and returned an `<Img />`. This way, I was able to import this into `header.js`, a stateful class that wouldn't allow usage of the hook.
+<details><summary>useStaticQuery hook</summary>
 
-##### Jest / Enzyme testing an element's classes inside a shallow wrapper
+<p>
+In <a href="#state-is-for-classes-not-functions">State is for classes not functions</a>, I described why I changed my header from a function to a class. Okay, so now that I had a class, <b>useStaticQuery</b> became an issue when I was trying to grab the logo image with graphql. You can only use a <a href="https://reactjs.org/docs/hooks-intro.html">hook</a> inside a function. The way I got around this is to create a new file, <b>image.js</b>, which was a function that utilized <b>useStaticQuery</b> and returned an <b>&lt;Img /&gt;</b>. This way, I was able to import this into <b>header.js</b>, a stateful class that wouldn't allow usage of the hook.
+</p>
+</details>
 
-This was super weird and frustrating. I was writing header tests and eventually got to the point where I wanted to make sure an `is-active` class was being added to a couple of things in the header when the burger icon was clicked, thus changing the state. I swear to god that the first time I wrote a test, nothing unexpected went down:
+<details><summary>Jest / Enzyme testing an element's classes inside a shallow wrapper</summary>
+<p>
+This was super weird and frustrating. I was writing header tests and eventually got to the point where I wanted to make sure an <b>is-active</b> class was being added to a couple of things in the header when the burger icon was clicked, thus changing the state. I swear to god that the first time I wrote a test, nothing unexpected went down:
 
 ```js
 it("has a dropdown toggle that rotates between a burger and an X upon state change", () => {
@@ -61,7 +74,7 @@ it("has a dropdown toggle that rotates between a burger and an X upon state chan
 });
 ```
 
-But then, I wrote another test to do basically the same thing for the actual menu display and all of the sudden, I could not get the "is-active" class to show up anywhere for the life of me. After a long, frustrating time of tinkering, I realize that I could get it to work like this:
+But then, I wrote another test to do basically the same thing for the actual menu display and all of the sudden, I could not get the <b>is-active</b> class to show up anywhere for the life of me. After a long, frustrating time of tinkering, I realize that I could get it to work like this:
 
 ```js
 it("has a dropdown toggle that rotates between a burger and an X upon state change", () => {
@@ -72,7 +85,7 @@ it("has a dropdown toggle that rotates between a burger and an X upon state chan
 });
 ```
 
-This is obviously really hacky, and not what I wanted, but at least it made me realize that the element was not ever updating from its initialized form. Aha!–I thought... I just need to use `let` instead of `const`. That didn't work. Looking through some docs made me think that I needed to do a `header.update()` after `onClick` was called – That didn't work either. Very weird, and I eventually figured that it was best to just move on. I settled on doing this:
+This is obviously really hacky, and not what I wanted, but at least it made me realize that the element was not ever updating from its initialized form. Aha!–I thought... I just need to use <b>let</b> instead of <b>const</b>. That didn't work. Looking through some docs made me think that I needed to do a <b>header.update()</b> after <b>onClick</b> was called – That didn't work either. Very weird, and I eventually figured that it was best to just move on. I settled on doing this:
 
 ```js
 const dropdownMenu = header.find("#mobileHeaderToggle");
@@ -82,12 +95,41 @@ expect(header.exists(".is-active"));
 
 to test both classes being added at once. This works because I'm not testing it through the dropdownMenu variable any longer. There are a lot of things that I fail to understand going on behind the scenes here. I will need some more experienced eyes to tell me where I was going wrong.
 
-### Things I Learned
+</p>
+</details>
 
-_I will be documenting major revelations that I have here._
+<details><summary>mount vs. shallow in Enzyme</summary>
+<p>
+Enzyme is a super helpful thing to have in addition to Jest. Pretty early on, I understood that calling <b>shallow(&lt;Component /&gt;)</b> will render the component, but not its child components. This made sense to me as something that's good for testing things in isolation. However, I ran into trouble when trying to write a test that makes sure link destinations are going to the right place in the header and footer nav menus.
+</p>
+<p>
+I wanted to do this by checking the Gatsby Link's <b>to</b> prop and comparing it to the content between the tags. The link destinations are lowercase, separated by dashes, and include a forward slash (e.g. /link-destination); but the content would be a capitalized phrase (e.g. Link Destination). So, I processed the strings with these things in mind so that "Link Destination" would reduce to "linkdestination" and "/link-destination" would reduce to "linkdestination" as well. For the footer tests, I was reading the content between the <b>&lt;List&gt;</b> and <b>&lt;/List&gt;</b> by doing a <b>.find()</b> on the children of all <b>li</b> tags and then using a <b>forEach()</b> to get <b>.text()</b> of their children. This worked great, but when I went to do the same thing in <b>Header</b>, it was getting <b>/&lt;mockconstructor&gt;</b> for the content reading. At this point, I realized that I was doing a <b>mount</b> in the footer and a <b>shallow</b> in the header.
+</p>
+<p>
+Okay, so I just need to mount the header in that specific test and then unmount it, right? Wrong. I couldn't mount it at all because of the graphql query in <b>&lt;HeaderLogo /&gt;</b>.
 
-##### State is for classes not functions
+```sh
+TypeError: Cannot read property 'fileName' of undefined
 
+      16 |   `);
+      17 |
+    > 18 |   return <Img fixed={data.fileName.childImageSharp.fixed} alt="logo" />;
+         |                           ^
+      19 | };
+```
+
+I don't know really know what is all going on behind the scenes here, so I couldn't figure out how to write this particular test. You can read more about <b>mount</b> vs. <b>shallow</b> <a href="https://gist.github.com/fokusferit/e4558d384e4e9cab95d04e5f35d4f913">here</a>.
+
+</p>
+</details>
+
+### Things I Have Learned
+
+_I will be documenting important things I pick up here._
+
+<details><summary id="state-is-for-classes-not-functions">State is for classes not functions</summary>
+
+<p>
 This was super obvious to me once I tried using state within a normal Gatsby React component, which I usually do like:
 
 ```js
@@ -124,9 +166,13 @@ class Header extends React {
 };
 ```
 
-##### Adding more stuff to a commit
+</p>
+</details>
 
-Let's say you write a nice commit message in Vim, but you forgot to mention one thing... simply run
+<details><summary>Adding more stuff to a git commit</summary>
+
+<p>
+Let's say you write a nice commit message in Vim, but you forgot to mention one thing... simply run:
 
 ```sh
 git commit --amend
@@ -134,6 +180,12 @@ git commit --amend
 
 and you'll be brought back to vim to add or change anything you need without making a brand new commit
 
-##### Simulating events in Enzyme
+</p>
+</details>
 
-Apparently using e.g. `button.simulate("click")` instead of `button.props().onClick()` is [bad](https://github.com/airbnb/enzyme/issues/1606)
+<details><summary>Simulating events in Enzyme</summary>
+
+<p>
+Apparently using e.g. <b>button.simulate("click")</b> instead of <b>button.props().onClick()</b> is <a href="https://github.com/airbnb/enzyme/issues/1606">bad</a>.
+</p>
+</details>
