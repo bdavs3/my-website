@@ -10,7 +10,7 @@ configure({ adapter: new Adapter() });
 describe("Header", () => {
   let header = null;
 
-  it("renders correctly", () => {
+  it("renders without crashing", () => {
     header = shallow(<Header />);
     expect(header).not.toBeNull();
   });
@@ -24,7 +24,7 @@ describe("Header", () => {
     expect(header.exists(".navbar-brand")).toBe(true);
   });
   it("contains a logo in the navbar brand", () => {
-    expect(header.find("Image")).toHaveLength(1);
+    expect(header.find("HeaderLogo")).toHaveLength(1);
   });
   it("has a dropdown toggle (burger icon) in the navbar brand", () => {
     expect(header.exists("#mobileHeaderToggle")).toBe(true);

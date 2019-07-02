@@ -6,6 +6,7 @@ import Head from "../components/head";
 import Layout from "../components/layout";
 
 import "../styles.scss";
+import "./styles/index.scss";
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -13,23 +14,28 @@ const IndexPage = ({ data }) => (
     <section id="home-main-image" className="section">
       <Img
         fluid={data.fileName.childImageSharp.fluid}
+        durationFadeIn={3000}
         alt="home-full-screen-image"
       />
     </section>
     <section id="about" className="section">
-      <h1 className="title is-2 has-text-centered">About me</h1>
-      <p className="has-text-centered">
-        Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Praesent
-        porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a
-        pretium mi sem ut ipsum. Fusce neque. Aenean posuere, tortor sed cursus
-        feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis
-        lacus. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id,
-        metus.
-      </p>
+      <div className="container">
+        <h1 className="title is-2 has-text-centered">About me</h1>
+        <p className="has-text-centered">
+          Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Praesent
+          porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a
+          pretium mi sem ut ipsum. Fusce neque. Aenean posuere, tortor sed
+          cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor
+          sagittis lacus. Vestibulum purus quam, scelerisque ut, mollis sed,
+          nonummy id, metus.
+        </p>
+      </div>
     </section>
     <section id="skills" className="section">
-      <h1 className="title is-2 has-text-centered">Skills</h1>
-      <p>Here are my skills</p>
+      <div className="container">
+        <h1 className="title is-2 has-text-centered">Skills</h1>
+        <p>Here are my skills</p>
+      </div>
     </section>
     <section id="education" className="section">
       <h1 className="title is-2 has-text-centered">Education</h1>
@@ -80,7 +86,7 @@ export const query = graphql`
   query HomePageQuery {
     fileName: file(relativePath: { eq: "1920x1080.png" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
+        fluid {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }
