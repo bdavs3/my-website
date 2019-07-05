@@ -1,10 +1,20 @@
 @charset "utf-8";
+// read more about bulma variables here: https://bulma.io/documentation/customize/variables/
+// initial variables
+$golden-brown: rgb(164, 143, 108);
 
-$title-color: #000000;
-$family-primary: Verdana;
+// derived variables
+$family-primary: Courier;
+$body-font-size: 1.25em;
+$primary: $golden-brown;
+$link: $primary;
 $section-padding: 0 0 20px 0;
-$footer-background-color: #ffffff;
+$footer-background-color: white;
 $footer-padding: 20px;
 $gap: 64px;
+
+* {
+  -webkit-tap-highlight-color: white; // remove the light blue background when tapped
+}
 
 @import "~bulma/bulma.sass";

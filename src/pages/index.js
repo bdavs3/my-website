@@ -1,9 +1,8 @@
 import React from "react";
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
 
 import Head from "../components/head";
 import Layout from "../components/layout";
+import Image from "../components/image";
 
 import "../styles.scss";
 import "./styles/index.scss";
@@ -11,53 +10,44 @@ import "./styles/index.scss";
 const IndexPage = ({ data }) => (
   <Layout>
     <Head title="Home" />
-    <section id="home-main-image" className="section">
-      <Img
-        fluid={data.fileName.childImageSharp.fluid}
-        durationFadeIn={3000}
-        alt="home-full-screen-image"
-      />
+
+    <section className="section">
+      <Image fileName="1920x1080.png" />
     </section>
+
     <section id="about" className="section">
-      <div className="container">
-        <h1 className="title is-2 has-text-centered">About me</h1>
-        <p className="has-text-centered">
-          Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Praesent
-          porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a
-          pretium mi sem ut ipsum. Fusce neque. Aenean posuere, tortor sed
-          cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor
-          sagittis lacus. Vestibulum purus quam, scelerisque ut, mollis sed,
-          nonummy id, metus.
-        </p>
-      </div>
-    </section>
-    <section id="skills" className="section">
-      <div className="container">
-        <h1 className="title is-2 has-text-centered">Skills</h1>
-        <p>Here are my skills</p>
-      </div>
-    </section>
-    <section id="education" className="section">
-      <h1 className="title is-2 has-text-centered">Education</h1>
+      <h1 className="title is-2 has-text-centered">About me</h1>
       <section className="hero">
-        <div className="hero-body is-paddingless">
-          <div className="container">
-            <h1 className="title is-4">Loyola Marymount University</h1>
-            <h2 className="subtitle">
-              2015 – 2019, <em>B.S. in Computer Science</em>
-            </h2>
-          </div>
-          <div className="container">
-            <h1 className="title is-4">Desert Vista High School</h1>
-            <h2 className="subtitle">2011 - 2015</h2>
-          </div>
+        <div className="hero-body">
+          Fusce convallis metus id felis luctus adipiscing. Etiam sit amet orci
+          eget eros faucibus tincidunt. Fusce neque. Aenean imperdiet. Cras
+          sagittis. Donec vitae sapien ut libero venenatis faucibus. Nunc nulla.
+          Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec,
+          quam. Aenean viverra rhoncus pede. Nulla sit amet est.
         </div>
       </section>
     </section>
+
+    <section id="skills" className="section">
+      <h1 className="title is-2 has-text-centered">Skills</h1>
+      <section className="hero">
+        <div className="hero-body">Here are my skills</div>
+      </section>
+    </section>
+
+    <section id="education" className="section">
+      <h1 className="title is-2 has-text-centered">Education</h1>
+      <section className="hero">
+        <div className="hero-body">
+          <p>This is my education</p>
+        </div>
+      </section>
+    </section>
+
     <section id="experience" className="section">
       <h1 className="title is-2 has-text-centered">Experience</h1>
       <section className="hero">
-        <div className="hero-body is-paddingless">
+        <div className="hero-body">
           <div className="container">
             <h1 className="title is-4">Mobiedock</h1>
             <h2 className="subtitle">
@@ -81,17 +71,5 @@ const IndexPage = ({ data }) => (
     </section>
   </Layout>
 );
-
-export const query = graphql`
-  query HomePageQuery {
-    fileName: file(relativePath: { eq: "1920x1080.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-  }
-`;
 
 export default IndexPage;

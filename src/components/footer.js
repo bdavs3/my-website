@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
 
+import "./styles/footer.scss";
+
 const Footer = () => (
   <footer className="footer is-fullwidth">
     <div className="container">
@@ -19,7 +21,7 @@ const Footer = () => (
                 <Link to="/blog">Blog</Link>
               </li>
               <li>
-                <Link to="/reading-corner">Reading Corner</Link>
+                <Link to="/book-review">Book Review</Link>
               </li>
             </ul>
           </aside>

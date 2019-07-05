@@ -19,12 +19,12 @@ class Header extends React.Component {
       <div>
         <header>
           <nav
-            className="navbar"
+            className="navbar is-fixed"
             role="navigation"
             aria-label="main-navigation"
           >
             <div className="navbar-brand">
-              <Link to="/">
+              <Link className="logo-link" to="/">
                 <HeaderLogo />
               </Link>
 
@@ -49,26 +49,18 @@ class Header extends React.Component {
                 this.state.menuExpanded ? "is-active" : ""
               }`}
             >
-              <div className="navbar-start">
+              <div className="navbar-start"></div>
+
+              <div className="navbar-end">
                 <Link className="navbar-item" to="/portfolio">
                   Portfolio
                 </Link>
                 <Link className="navbar-item" to="/blog">
                   Blog
                 </Link>
-                <Link className="navbar-item" to="/reading-corner">
-                  Reading Corner
+                <Link className="navbar-item" to="/book-review">
+                  Book Review
                 </Link>
-              </div>
-              <div className="navbar-end">
-                <div className="navbar-item">
-                  <div className="buttons">
-                    <button className="button is-info">
-                      <strong>Sign up</strong>
-                    </button>
-                    <button className="button is-light">Log in</button>
-                  </div>
-                </div>
               </div>
             </div>
           </nav>

@@ -4,12 +4,12 @@ import { Link } from "gatsby";
 import Head from "../components/head";
 import Layout from "../components/layout";
 
-const ReadingCorner = () => (
+const BookReview = () => (
   <Layout>
-    <Head title="Reading Corner" />
-    <h1>Hi from the reading corner</h1>
+    <Head title="Book Review" />
+    <h1>Hi from the book review</h1>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 );
 
-export default ReadingCorner;
+export default BookReview;

@@ -189,3 +189,9 @@ and you'll be brought back to vim to add or change anything you need without mak
 Apparently using e.g. <b>button.simulate("click")</b> instead of <b>button.props().onClick()</b> is <a href="https://github.com/airbnb/enzyme/issues/1606">bad</a>.
 </p>
 </details>
+
+<details><summary>Gatsby image component</summary>
+<p>
+It is indeed possible to create a component that takes care of the things needed to query and display Gatsby images (rather than having a separate query for every single image). <a href="https://www.freecodecamp.org/news/how-i-made-my-portfolio-website-blazing-fast-with-gatsby-82ccddc2f671/">This post</a> explained how this can be done using the <b>allFile</b> query. Once you have queried all the images, you can simply use <b>props</b> to select the right one. One improvement I'd like to make is to allow props to be passed to this component such that you may indicate whether you are requesting a <b>fluid</b> or <b>fixed</b> image (and if it is <b>fixed</b>, what size?). I'm not sure how (or if it's even possible) to pass props to a graphql query, which I think is what I'd need to do for this functionality. So, for now, <b>image.js</b> just returns a <b>fluid</b> image.
+</p>
+</details>
