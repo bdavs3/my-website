@@ -29,12 +29,8 @@ const Footer = () => (
         <div className="column">
           <h1 className="footer-heading">CONTACT</h1>
           <ul className="footer-item">
-            <li>
-              <strong>Email</strong>: example@gmail.com
-            </li>
-            <li>
-              <strong>Phone</strong>: (123) 456-7890
-            </li>
+            <li>example@gmail.com</li>
+            <li>(123) 456-7890</li>
           </ul>
         </div>
         <div className="column">
