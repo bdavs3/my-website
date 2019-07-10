@@ -80,6 +80,32 @@
   font-style: italic;
 }
 
+// Arvo
+@font-face {
+  font-family: "Arvo";
+  src: url("../fonts/arvo-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Arvo";
+  src: url("../fonts/arvo-italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Arvo";
+  src: url("../fonts/arvo-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Arvo";
+  src: url("../fonts/arvo-boldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
 // read more about bulma variables here: https://bulma.io/documentation/customize/variables/
 // initial variables
 $golden-brown: rgb(164, 143, 108);
@@ -87,7 +113,7 @@ $transparent-golden-brown: rgba(164, 143, 108, 0.5);
 $dark-blue: rgb(10, 30, 50);
 
 // derived variables
-$family-primary: Verdana;
+$family-primary: Arvo;
 $body-font-size: 1.25em;
 $link: $golden-brown;
 $section-padding: 0 0 20px 0;
@@ -97,6 +123,15 @@ $gap: 64px;
 
 main a {
   transition: ease-in-out 0.75s !important;
+}
+
+// disables the scrollbar on mobile (which kept flickering when showing the header)
+html,
+body {
+  overflow-x: hidden !important;
+}
+body {
+  position: relative !important;
 }
 
 * {

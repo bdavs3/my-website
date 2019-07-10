@@ -2,7 +2,7 @@
 
 [Description](#description)\
 [Road-blocks](#road-blocks)\
-[Things I Learned](#things-i-learned)
+[Things I Have Learned](#things-i-have-learned)\
 [Todo](#todo)
 
 ### Description
@@ -122,6 +122,12 @@ TypeError: Cannot read property 'fileName' of undefined
 I don't know really know what is all going on behind the scenes here, so I couldn't figure out how to write this particular test. You can read more about <b>mount</b> vs. <b>shallow</b> <a href="https://gist.github.com/fokusferit/e4558d384e4e9cab95d04e5f35d4f913">here</a>.
 
 </p>
+</details>
+
+<details><summary>Organizing CSS</summary>
+  <p>
+    The overall way that I style my site is fine – in fact, I quite like it. I have a master <b>styles.scss</b> file in the <b>src/</b> directory which imports Bulma and does some other initial things. Then, I have a <b>styles/</b> directory within both the <b>components/</b> and <b>pages/</b> directories that can serve some additional Sass to whatever files necessary. However, within those files, things get really messy. I am not sure of any rhyme or reason to writing clean CSS. I need to do some reading on the subject. It's not that this has ever caused any real issues, but I can tell that if these files get much bigger, they will become extremely confusing. Should I list styles with respect to the order the site dictates? Maybe? But I can pretty easily ctrl+f to find what I need for now.. 
+  </p>
 </details>
 
 ### Things I Have Learned

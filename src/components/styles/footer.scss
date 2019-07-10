@@ -4,7 +4,7 @@ $link-hover: scaleX(0.35);
 $link-hover-transition: all 0.5s cubic-bezier(0.85, 0, 0.1, 1) 0s;
 
 @mixin title-font {
-  font-family: Ostrich Sans Inline;
+  font-family: Ostrich Sans;
   font-size: 2.5rem !important;
   color: white !important;
 }
@@ -12,6 +12,12 @@ $link-hover-transition: all 0.5s cubic-bezier(0.85, 0, 0.1, 1) 0s;
 @mixin list-font {
   font-family: Ostrich Sans;
   font-size: 1.5rem !important;
+  color: white !important;
+}
+
+@mixin copyright-font {
+  font-family: Ostrich Sans;
+  font-size: 1.25rem !important;
   color: white !important;
 }
 
@@ -34,6 +40,10 @@ footer {
   &:hover {
     color: $golden-brown !important;
   }
+}
+
+.copyright {
+  @include copyright-font;
 }
 
 // the next three blocks are for header menu hover animations
@@ -80,4 +90,9 @@ footer {
   li {
     padding: 8px 12px;
   }
+}
+
+footer .gatsby-image-wrapper {
+  margin-bottom: 10px;
+  filter: brightness(0) invert(1);
 }
