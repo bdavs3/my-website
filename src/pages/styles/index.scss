@@ -1,6 +1,39 @@
-//
+$golden-brown: rgb(164, 143, 108);
+$column-padding: 12px 12px 0px 12px;
+
 .title {
   font-family: Ostrich Sans;
   font-weight: normal;
   font-style: normal;
+}
+
+.navigator-item {
+  background-color: $golden-brown;
+  padding: $column-padding;
+  &:not(last-child) {
+    margin-right: 5px;
+  }
+  @media screen and (max-width: 768px) {
+    margin-top: 5px;
+  }
+}
+
+.navigator-heading {
+  font-size: 4rem;
+  color: white;
+}
+
+.hero-body {
+  padding: 24px;
+}
+
+.main-img {
+  height: calc(100vh - 172px) !important;
+  @media screen and (max-width: 768px) {
+    height: calc(100vh - 355px) !important;
+  }
+}
+
+.content {
+  height: calc(100vh) !important;
 }
