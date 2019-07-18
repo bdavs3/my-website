@@ -12,7 +12,7 @@ import "aos/dist/aos.css";
 
 AOS.init();
 
-const IndexPage = ({ data }) => (
+const IndexPage = () => (
   <Layout>
     <Head title="Home" />
 
@@ -44,7 +44,7 @@ const IndexPage = ({ data }) => (
     </section>
 
     <section id="past" className="section content">
-      <h1 className="title is-2 has-text-centered">My Past</h1>
+      <h1 className="is-1 title has-text-centered">My Past</h1>
       <section className="hero">
         <div className="hero-body">
           Fusce convallis metus id felis luctus adipiscing. Etiam sit amet orci
@@ -57,7 +57,7 @@ const IndexPage = ({ data }) => (
     </section>
 
     <section id="present" className="section content">
-      <h1 className="title is-2 has-text-centered">My Present</h1>
+      <h1 className="title is-1 has-text-centered">My Present</h1>
       <section className="hero">
         <div className="hero-body">
           Fusce convallis metus id felis luctus adipiscing. Etiam sit amet orci
@@ -70,7 +70,7 @@ const IndexPage = ({ data }) => (
     </section>
 
     <section id="future" className="section content">
-      <h1 className="title is-2 has-text-centered">My Future</h1>
+      <h1 className="title is-1 has-text-centered">My Future</h1>
       <section className="hero">
         <div className="hero-body">
           Fusce convallis metus id felis luctus adipiscing. Etiam sit amet orci

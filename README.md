@@ -130,6 +130,12 @@ I don't know really know what is all going on behind the scenes here, so I could
   </p>
 </details>
 
+<details><summary>Usage of <b>!important</b> in CSS</summary>
+<p>
+In a standard set of CSS files, you probably won't end up using <b>!important</b> very often. However, when using a CSS framework, it's a different story. I feel like I needed to put <b>!important</b> after just about every rule I was writing, or else it would get overwritten by something in Bulma. I wager that this can be avoided somehow, but I couldn't figure it out. The order that CSS files are imported indicates which rules will take precedence if there are instances of conflicting rules. However, rearranging my imports didn't seem to be doing the trick so I just ended up slapping an <b>!important</b> anywhere a rule wasn't going through.
+</p>
+</details>
+
 ### Things I Have Learned
 
 _I will be documenting important things I pick up here._
@@ -203,8 +209,21 @@ It is indeed possible to create a component that takes care of the things needed
 </p>
 </details>
 
+<details><summary>Yarn doesn't have <b>audit fix</b>... <em>...What?!</em></summary>
+<p>
+This is actually hugely inconvenient. Read more <a href="https://github.com/yarnpkg/yarn/issues/7075">here</a>. It seems like the yarn maintainer is stubborn and doesn't want to implement this, but in the meantime I'm freaking out about how to fix all of my vulnerable dependencies.
+</p>
+</details>
+
+<details><summary>Gatsby source filesystem + gatsby transformer remark</summary>
+<p>
+It took forever for me to figure out why I couldn't query <b>allMarkdownRemark</b> from GraphQL Playground. I was getting a warning about the gatsby-transformer-remark plugin being behind the version of gatsby on my site, so I went down a rabbit hole of trying to update various parts of the gatsby package. I learned a bit about how all <em>that</em> works, but it still wasn't fixing the issue. Eventually, I realized that I needed to define a new gatsby-source-filesystem path in <b>gatsby-config.js</b> for the blog-posts directory I had just created.
+</p>
+</details>
+
 ### Todo
 
 _Things I still need to take care of at some point!_
 
 - Don't re-trigger the hover animation on desktop header links when you click on of them to visit a different page
+- Get a graphic designer to make some cool things for the landing page!

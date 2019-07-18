@@ -1,9 +1,9 @@
 $golden-brown: rgb(164, 143, 108);
-$column-padding: 12px 12px 0px 12px;
+$column-padding: 12px;
 
 .title {
   font-family: Ostrich Sans;
-  font-weight: normal;
+  font-weight: normal !important;
   font-style: normal;
 }
 
@@ -21,6 +21,7 @@ $column-padding: 12px 12px 0px 12px;
 .navigator-heading {
   font-size: 4rem;
   color: white;
+  margin: 12px 0 0 0;
 }
 
 .hero-body {
@@ -28,9 +29,9 @@ $column-padding: 12px 12px 0px 12px;
 }
 
 .main-img {
-  height: calc(100vh - 172px) !important;
+  height: calc(100vh - 195px) !important;
   @media screen and (max-width: 768px) {
-    height: calc(100vh - 355px) !important;
+    height: calc(100vh - 420px) !important;
   }
 }
 
