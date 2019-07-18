@@ -19,7 +19,7 @@ const Blog = ({ data }) => {
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <section key={node.id} className="hero-body">
               <h3>
-                <Link to="/">{node.frontmatter.title}</Link>{" "}
+                <Link to={node.fields.slug}>{node.frontmatter.title}</Link>{" "}
                 <span>— {node.frontmatter.date}</span>
               </h3>
               <span className="read-time">
@@ -44,6 +44,9 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
           }
           excerpt
           timeToRead
