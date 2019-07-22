@@ -21,7 +21,7 @@ const IndexPage = () => (
         <Image fileName="1920x1080.png" />
       </section>
       <section className="hero">
-        <div className="hero-body has-text-centered">
+        <div className="navigator hero-body has-text-centered">
           <div className="columns">
             <div className="navigator-item column">
               <AnchorLink href="#past" offset="25">

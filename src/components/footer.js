@@ -11,7 +11,7 @@ const Footer = () => (
       <div className="columns">
         <div className="column">
           <aside className="menu">
-            <p className="menu-label">Navigation</p>
+            <div className="menu-label">Navigation</div>
             <ul className="menu-list">
               <li>
                 <Link to="/">Home</Link>

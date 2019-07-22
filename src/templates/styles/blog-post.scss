@@ -1,0 +1,10 @@
+p {
+  margin-top: 1em;
+}
+
+.blog-content {
+  padding: 24px 124px;
+  @media screen and (max-width: 767px) {
+    padding: 24px;
+  }
+}

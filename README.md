@@ -133,6 +133,9 @@ I don't know really know what is all going on behind the scenes here, so I could
 <details><summary>Usage of <b>!important</b> in CSS</summary>
 <p>
 In a standard set of CSS files, you probably won't end up using <b>!important</b> very often. However, when using a CSS framework, it's a different story. I feel like I needed to put <b>!important</b> after just about every rule I was writing, or else it would get overwritten by something in Bulma. I wager that this can be avoided somehow, but I couldn't figure it out. The order that CSS files are imported indicates which rules will take precedence if there are instances of conflicting rules. However, rearranging my imports didn't seem to be doing the trick so I just ended up slapping an <b>!important</b> anywhere a rule wasn't going through.
+
+<em>Update</em>: CSS files running into each other in general is an issue. Stuff that I write in <b>blog-post.scss</b> (for example) is affecting other files. The solution.. css modules! I found out that you can do this easily with Sass. Simply, <b>filename.module.scss</b>. In the next commit, I'll make all my scss files into modules and adjust from there. There will probably need to be some file restructuring.
+
 </p>
 </details>
 
