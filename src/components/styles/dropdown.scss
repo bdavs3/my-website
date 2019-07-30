@@ -1,0 +1,15 @@
+$golden-brown: rgb(164, 143, 108);
+
+.dropdown {
+  .button {
+    box-shadow: none !important;
+    &:focus {
+      border-color: #dbdbdb;
+    }
+    &:hover,
+    .is-focus {
+      border-color: $golden-brown;
+      color: $golden-brown;
+    }
+  }
+}

@@ -43,7 +43,7 @@ const IndexPage = () => (
       </section>
     </section>
 
-    <section id="past" className="section content">
+    <section id="past" className="section home-content">
       <h1 className="is-1 title has-text-centered">My Past</h1>
       <section className="hero">
         <div className="hero-body">
@@ -56,7 +56,7 @@ const IndexPage = () => (
       </section>
     </section>
 
-    <section id="present" className="section content">
+    <section id="present" className="section home-content">
       <h1 className="title is-1 has-text-centered">My Present</h1>
       <section className="hero">
         <div className="hero-body">
@@ -69,7 +69,7 @@ const IndexPage = () => (
       </section>
     </section>
 
-    <section id="future" className="section content">
+    <section id="future" className="section home-content">
       <h1 className="title is-1 has-text-centered">My Future</h1>
       <section className="hero">
         <div className="hero-body">

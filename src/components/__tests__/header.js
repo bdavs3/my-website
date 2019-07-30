@@ -52,16 +52,7 @@ describe("Header", () => {
     expect(header.exists(".navbar-start")).toBe(true);
     expect(header.exists(".navbar-end")).toBe(true);
   });
-  it("has three menu items in the navbar start", () => {
-    expect(header.find(".navbar-start").find(".navbar-item")).toHaveLength(3);
-  });
-  it("has two buttons in the navbar-end", () => {
-    expect(
-      header
-        .find(".navbar-end")
-        .find(".navbar-item")
-        .find(".buttons")
-        .find("button")
-    ).toHaveLength(2);
+  it("has four menu items in the navbar end", () => {
+    expect(header.find(".navbar-end").find(".navbar-item")).toHaveLength(4);
   });
 });

@@ -13,8 +13,8 @@ describe("Footer", () => {
     footer = shallow(<Footer />);
     expect(footer).not.toBeNull();
   });
-  it("contains three columns", () => {
-    expect(footer.find(".column")).toHaveLength(3);
+  it("contains five total columns", () => {
+    expect(footer.find(".column")).toHaveLength(5);
   });
   it("has a menu in the first column", () => {
     expect(
@@ -25,7 +25,7 @@ describe("Footer", () => {
     );
   });
   it("has a title for the menu in the first column", () => {
-    const title = <p className="menu-label">Navigation</p>;
+    const title = <div className="menu-label">Navigation</div>;
     expect(footer.contains(title)).toBe(true);
   });
   it("has links in the menu in the first column", () => {

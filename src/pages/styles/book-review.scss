@@ -1,0 +1,23 @@
+.book-review-title {
+  margin-top: 25px !important;
+}
+
+@mixin content {
+  padding: 0px 100px !important;
+  @media screen and (max-width: 767px) {
+    padding: 0px 15px !important;
+  }
+}
+
+.book-review-dropdowns {
+  @include content;
+  .hero {
+    .hero-body {
+      padding-top: 0px;
+    }
+  }
+}
+
+.entries {
+  @include content;
+}

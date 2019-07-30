@@ -99,7 +99,7 @@ $link-hover-transition: all 0.5s cubic-bezier(0.85, 0, 0.1, 1) 0s;
 }
 
 .navbar-menu {
-  @media screen and (max-width: 1087px) {
+  @media screen and (max-width: 767px) {
     padding: 0px !important;
   }
   box-shadow: none !important;

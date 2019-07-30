@@ -11,7 +11,7 @@ const BlogPost = ({ data }) => {
     <Layout>
       <section className="section">
         <section className="hero">
-          <section className="hero-body">
+          <section className="hero-body blog-title">
             <h1 className="title is-1 has-text-centered">
               {post.frontmatter.title}
             </h1>

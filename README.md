@@ -136,6 +136,14 @@ In a standard set of CSS files, you probably won't end up using <b>!important</b
 
 <em>Update</em>: CSS files running into each other in general is an issue. Stuff that I write in <b>blog-post.scss</b> (for example) is affecting other files. The solution.. css modules! I found out that you can do this easily with Sass. Simply, <b>filename.module.scss</b>. In the next commit, I'll make all my scss files into modules and adjust from there. There will probably need to be some file restructuring.
 
+<em>Another update</em>: Well, I started trying to convert to CSS modules, and it looks like that'd be a much larger task than I anticipated. It would take major restructuring to do this, and I'm not sure how I would go about styling pre-generated Bulma classes. I may revisit this later or just forget about it since this is a pretty small site.
+
+</p>
+</details>
+
+<details><summary>Writing unit tests for pages / components that use GraphQL queries</summary>
+<p>
+Writing tests for components is pretty straightforward, especially since Enzyme allows for shallow rendering. However, in files that use a GraphQL query, I couldn't figure out how to test the code without getting something like <b>cannot read property of undefined</b> (e.g. on <b>data.allMarkdownRemark.edges.map</b>). I tried <b>shallow</b>, <b>mount</b>, and <b>render</b> and none of them did the trick. For now, there will be no tests for files that use GraphQL.
 </p>
 </details>
 
@@ -230,3 +238,5 @@ _Things I still need to take care of at some point!_
 
 - Don't re-trigger the hover animation on desktop header links when you click on of them to visit a different page
 - Get a graphic designer to make some cool things for the landing page!
+- Figure out a way to write my email address in the footer in a way that prevents spam bots from finding it
+- Enable "clicking out of" the filters for the book-review.. Also make it such that only one may be expanded at a time

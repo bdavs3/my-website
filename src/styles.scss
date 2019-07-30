@@ -135,7 +135,7 @@ body {
 }
 
 * {
-  -webkit-tap-highlight-color: white; // remove the light blue background when tapped
+  -webkit-tap-highlight-color: white !important; // remove the light blue background when tapped
   &::selection {
     background-color: $transparent-golden-brown;
   }
