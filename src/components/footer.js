@@ -56,6 +56,15 @@ const Footer = () => (
                 <Image className="icon" fileName="linkedin-icon.png" />
               </a>
             </div>
+            <div className="column is-one-quarter">
+              <a
+                href="https://www.goodreads.com/user/show/100358524-ben-davis"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image className="icon" fileName="goodreads-icon.png" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

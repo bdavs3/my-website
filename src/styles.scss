@@ -122,7 +122,9 @@ $footer-padding: 20px;
 $gap: 64px;
 
 main a {
-  transition: ease-in-out 0.75s !important;
+  &:hover {
+    color: $golden-brown;
+  }
 }
 
 // disables the scrollbar on mobile (which kept flickering when showing the header)

@@ -21,8 +21,8 @@ $link-hover-transition: all 0.5s cubic-bezier(0.85, 0, 0.1, 1) 0s;
   color: white !important;
 }
 
-footer {
-  background-color: $golden-brown !important;
+.footer.is-fullwidth {
+  background-color: $golden-brown;
 }
 
 .menu-label,

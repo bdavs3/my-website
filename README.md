@@ -147,6 +147,27 @@ Writing tests for components is pretty straightforward, especially since Enzyme 
 </p>
 </details>
 
+<details><summary>Opening and closing modals in the book review</summary>
+<p>
+This took <em>forever</em> but I am really pleased with the solution I ended up at. Basically, I had a <b>&lt;Modal /&gt;</b> that needed to
+
+• open when a button was clicked in the Book Review
+
+• close when the background of the <b>&lt;Modal /&gt;</b> or a button on it was clicked
+
+I had a heck of a time trying to figure out how to set up state to do this properly. At first I thought that it made the most sense to keep an <b>isOpen</b> state in the <b>&lt;Modal /&gt;</b> itself, but I found that it is bad to try to control child component state from the parent component. Rather, I should be keeping the state in the parent component and using props to open / close the child component.
+
+I got so lost and confused while doing this that I created a Stack Overflow account and asked <a href="https://stackoverflow.com/questions/57405151/how-do-i-control-the-state-of-this-child-component-upon-a-button-click-in-its-pa/57405242?noredirect=1#comment101326183_57405242">a question</a> about it. The solution ended up being <em>really</em> simple, and it made me appreciate how nice React is. I needed to:
+
+• keep track of state in <b>Book Review</b>
+
+• pass the <b>\_closeModal</b> function as a prop to <b>&lt;Modal /&gt;</b> so that stuff going on inside it (like a click registered on the background or 'x' button) can manipulate the state of <b>Book Review</b>
+
+This helped me figure out how to configure my dropdown menus as well. It is easy to keep track of which one is open in the state in <b>Book Review</b> and pass the toggle function as a prop to each <b>&lt;Dropdown /&gt;</b>.
+
+</p>
+</details>
+
 ### Things I Have Learned
 
 _I will be documenting important things I pick up here._
@@ -232,11 +253,21 @@ It took forever for me to figure out why I couldn't query <b>allMarkdownRemark</
 </p>
 </details>
 
+<details><summary>Branching is crucial in Git</summary>
+<p>
+My typical workflow would involve me working on a part of the website that I wanted to tackle next until inevitably getting distracted by little bugs and changes that I notice need attention. I'd make small adjustments and then package all these little changes into the commit I was working on. This is really bad! I should have created branches for all of the website pages as well as each of the components. (I'll do that once I push this commit). Then, if I notice something wrong with the footer, for example, I'll swap to the footer branch and commit to it before eventually merging back with master.
+</p>
+</details>
+
 ### Todo
 
 _Things I still need to take care of at some point!_
 
-- Don't re-trigger the hover animation on desktop header links when you click on of them to visit a different page
+- Don't re-trigger the hover animation on desktop header links when you click on of them to visit a different page.
 - Get a graphic designer to make some cool things for the landing page!
-- Figure out a way to write my email address in the footer in a way that prevents spam bots from finding it
-- Enable "clicking out of" the filters for the book-review.. Also make it such that only one may be expanded at a time
+- Figure out a way to write my email address in the footer in a way that prevents spam bots from finding it.
+- Enable "clicking out of" the filters for the book review.. Also make it such that only one may be expanded at a time.
+- Remove google links from various anchor tags in the book review.
+- Okay, I really need the CSS files to stop running into each other. It is becoming a train wreck. Time to search for how to do that.
+- Only allow one dropdown menu to be open at a time in BookReview
+- Get the areas to the left and right of the dropdown filters in the Book Review to close all filters as well

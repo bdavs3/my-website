@@ -72,6 +72,9 @@ $link-hover-transition: all 0.5s cubic-bezier(0.85, 0, 0.1, 1) 0s;
 
 .navbar-menu.is-active {
   animation: menuAnim 0.5s cubic-bezier(0.85, 0, 0.1, 1) 0.25s both;
+  a {
+    color: $golden-brown;
+  }
 }
 
 @keyframes linksAnim {

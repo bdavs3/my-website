@@ -1,8 +1,8 @@
 import React from "react";
 
-import Image from "./image";
+import Image from "../image";
 
-import "./styles/book-review-entry.scss";
+import "../styles/book-review-entry.scss";
 
 const BookReviewEntry = () => (
   <div className="box">
