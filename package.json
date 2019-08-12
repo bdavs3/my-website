@@ -47,6 +47,7 @@
     "develop": "env-cmd -f .env gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "yarn run develop",
+    "start-for-mobile": "gatsby develop -o -H $HOSTNAME -p 8000",
     "serve": "gatsby serve",
     "test": "jest --verbose"
   },

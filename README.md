@@ -256,6 +256,22 @@ It took forever for me to figure out why I couldn't query <b>allMarkdownRemark</
 <details><summary>Branching is crucial in Git</summary>
 <p>
 My typical workflow would involve me working on a part of the website that I wanted to tackle next until inevitably getting distracted by little bugs and changes that I notice need attention. I'd make small adjustments and then package all these little changes into the commit I was working on. This is really bad! I should have created branches for all of the website pages as well as each of the components. (I'll do that once I push this commit). Then, if I notice something wrong with the footer, for example, I'll swap to the footer branch and commit to it before eventually merging back with master.
+
+Oh, also I need to commit more often. I tend to just commit when I feel like I've accomplished something, but that's not really the point.
+
+</p>
+</details>
+
+<details><summary>Testing a development site on mobile</summary>
+<p>
+I thought it wouldn't be bad to hop on a localhost port if your iPhone is on the network as your computer (I was encouraged by <a href="https://stackoverflow.com/questions/3132105/how-do-you-access-a-website-running-on-localhost-from-iphone-browser">this thread</a>. Alas, I couldn't get it to work. But then I found this absolutely awesome solution in <a href="">this thread</a>.
+
+```sh
+gatsby develop -o -H $HOSTNAME -p 8000
+```
+
+I added this script to <b>package.json</b> because it is useful to have it in shorthand for testing on my phone.
+
 </p>
 </details>
 
@@ -271,3 +287,8 @@ _Things I still need to take care of at some point!_
 - Okay, I really need the CSS files to stop running into each other. It is becoming a train wreck. Time to search for how to do that.
 - Only allow one dropdown menu to be open at a time in BookReview
 - Get the areas to the left and right of the dropdown filters in the Book Review to close all filters as well
+- Mobile changes:
+  - Fix spinning burger in menu – the spans get all messed up
+  - Book review dropdowns run into the side
+  - Mobile clicks are gross, mostly from hover stuff
+- Footer jumps around on zoom

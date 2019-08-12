@@ -32,12 +32,12 @@ class BookReview extends React.Component {
 
     return (
       <div>
-        <Modal
-          isOpen={this.state.openModal === "info"}
-          closeModal={this._closeModal}
-        />
         <Layout>
           <Head title="Book Review" />
+          <Modal
+            isOpen={this.state.openModal === "info"}
+            closeModal={this._closeModal}
+          />
           <section
             className="section book-review-title"
             onClick={() => this._toggleDropdown("")}
