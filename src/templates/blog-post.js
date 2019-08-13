@@ -12,7 +12,7 @@ const BlogPost = ({ data }) => {
       <div className="blog-post-wrapper">
         <section className="section">
           <section className="hero">
-            <section className="hero-body title">
+            <section className="hero-body title-section">
               <h1 className="title is-1 has-text-centered">
                 {post.frontmatter.title}
               </h1>

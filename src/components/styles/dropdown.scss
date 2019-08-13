@@ -12,4 +12,12 @@
       color: $golden-brown;
     }
   }
+
+  .dropdown-content {
+    a {
+      &:hover {
+        color: $dark-gray;
+      }
+    }
+  }
 }
