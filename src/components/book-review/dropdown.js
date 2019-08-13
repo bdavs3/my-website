@@ -13,19 +13,21 @@ const Dropdown = props => {
   });
 
   return (
-    <div className={`dropdown ${active ? "is-active" : ""}`}>
-      <div className="dropdown-trigger">
-        <button
-          className="button"
-          onClick={toggleDropdown}
-          aria-haspopup="true"
-          aria-controls="dropdown-menu"
-        >
-          <span>{title}</span>
-        </button>
-      </div>
-      <div className="dropdown-menu" id="dropdown-menu" role="menu">
-        <div className="dropdown-content">{menuItems}</div>
+    <div className="dropdown-wrapper">
+      <div className={`dropdown ${active ? "is-active" : ""}`}>
+        <div className="dropdown-trigger">
+          <button
+            className="button"
+            onClick={toggleDropdown}
+            aria-haspopup="true"
+            aria-controls="dropdown-menu"
+          >
+            <span>{title}</span>
+          </button>
+        </div>
+        <div className="dropdown-menu" id="dropdown-menu" role="menu">
+          <div className="dropdown-content">{menuItems}</div>
+        </div>
       </div>
     </div>
   );

@@ -1,105 +1,103 @@
-$golden-brown: rgb(164, 143, 108);
+@import "../../utilities/variables";
 
-.book-review-title {
-  margin-top: 25px !important;
-}
-
-@mixin content {
-  padding: 0% 15% !important;
-  @media screen and (max-width: 767px) {
-    padding: 0% 10% !important;
+.book-review-wrapper {
+  .book-review-title {
+    margin-top: 25px !important;
   }
-}
 
-.entries {
-  @include content;
-}
-
-.book-search a {
-  background-color: $golden-brown;
-  color: white;
-  &:hover,
-  &:active,
-  &:focus {
-    color: white !important;
-    box-shadow: none !important;
-  }
-}
-
-.book-search {
-  .button {
-    &:focus,
-    .is-focused {
-      border-color: white;
+  .entries {
+    padding: 0% 15% !important;
+    @media screen and (max-width: 767px) {
+      padding: 0% 10% !important;
     }
   }
-}
 
-.info-button {
-  border-color: $golden-brown;
-  color: $golden-brown;
-  &:hover {
+  .book-search a {
+    background-color: $golden-brown;
+    color: white;
+    &:hover,
+    &:active,
+    &:focus {
+      color: white !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .book-search {
+    .button {
+      &:focus,
+      .is-focused {
+        border-color: white;
+      }
+    }
+  }
+
+  .info-button {
     border-color: $golden-brown;
     color: $golden-brown;
-  }
-}
-
-.dropdown-content {
-  background-color: $golden-brown;
-  a {
-    color: white;
-  }
-}
-
-.level-holder {
-  margin: 0% 10%;
-}
-
-.level-left {
-  @media screen and (min-width: 768px) {
-    margin-right: 2.5%;
-  }
-}
-
-.level-right {
-  @media screen and (min-width: 768px) {
-    margin-left: 2.5%;
-  }
-}
-
-.desktop-level {
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-}
-
-.mobile-level {
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
-}
-
-.level.is-mobile {
-  .level-item {
-    input {
-      width: 95%;
+    &:hover {
+      border-color: $golden-brown;
+      color: $golden-brown;
     }
   }
-}
 
-// copied from hover.css
-.hvr-shrink {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-}
-.hvr-shrink:hover {
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+  .dropdown-content {
+    background-color: $golden-brown;
+    a {
+      color: white;
+    }
+  }
+
+  .level-holder {
+    margin: 0% 10%;
+  }
+
+  .level-left {
+    @media screen and (min-width: 768px) {
+      margin-right: 2.5%;
+    }
+  }
+
+  .level-right {
+    @media screen and (min-width: 768px) {
+      margin-left: 2.5%;
+    }
+  }
+
+  .desktop-level {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .mobile-level {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .level.is-mobile {
+    .level-item {
+      input {
+        width: 95%;
+      }
+    }
+  }
+
+  // copied from hover.css
+  .hvr-shrink {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-shrink:hover {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
 }

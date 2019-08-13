@@ -31,8 +31,8 @@ class BookReview extends React.Component {
     };
 
     return (
-      <div>
-        <Layout>
+      <Layout>
+        <div className="book-review-wrapper">
           <Head title="Book Review" />
           <Modal
             isOpen={this.state.openModal === "info"}
@@ -169,8 +169,8 @@ class BookReview extends React.Component {
               </div>
             </div>
           </section>
-        </Layout>
-      </div>
+        </div>
+      </Layout>
     );
   }
 

@@ -16,7 +16,7 @@ class BookReviewEntry extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="book-review-entry-wrapper">
         <Modal
           isOpen={this.state.detailsOpen}
           closeModal={this._closeDetails}

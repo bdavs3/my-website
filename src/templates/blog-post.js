@@ -9,22 +9,24 @@ const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
-      <section className="section">
-        <section className="hero">
-          <section className="hero-body blog-title">
-            <h1 className="title is-1 has-text-centered">
-              {post.frontmatter.title}
-            </h1>
-            <h1 className="title is-3 has-text-centered">
-              {post.frontmatter.date}
-            </h1>
-          </section>
+      <div className="blog-post-wrapper">
+        <section className="section">
+          <section className="hero">
+            <section className="hero-body title">
+              <h1 className="title is-1 has-text-centered">
+                {post.frontmatter.title}
+              </h1>
+              <h1 className="title is-3 has-text-centered">
+                {post.frontmatter.date}
+              </h1>
+            </section>
 
-          <section className="hero-body blog-content">
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            <section className="hero-body content">
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            </section>
           </section>
         </section>
-      </section>
+      </div>
     </Layout>
   );
 };

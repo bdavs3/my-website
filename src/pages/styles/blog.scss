@@ -1,23 +1,27 @@
-$golden-brown: rgb(164, 143, 108);
-$dark-gray: #4a4a4a;
-$light-gray: #7a7a7a;
+@import "../../utilities/variables";
 
-.blog-title {
-  font-family: Ostrich Sans;
-  font-weight: normal !important;
-  font-style: normal;
-  margin-top: 25px;
-}
+.blog-wrapper {
+  h1 {
+    font-family: Ostrich Sans;
+    font-weight: normal !important;
+    font-style: normal;
+    margin-top: 25px;
+  }
 
-.read-time {
-  color: $light-gray;
-}
+  .hero-body {
+    padding: 25px 50px;
+  }
 
-h3 {
-  color: $golden-brown;
-  font-weight: bold;
-  span {
-    color: $dark-gray;
-    font-weight: normal;
+  .read-time {
+    color: $light-gray;
+  }
+
+  h3 {
+    color: $golden-brown;
+    font-weight: bold;
+    span {
+      color: $dark-gray;
+      font-weight: normal;
+    }
   }
 }

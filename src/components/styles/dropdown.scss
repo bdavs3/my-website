@@ -1,6 +1,6 @@
-$golden-brown: rgb(164, 143, 108);
+@import "../../utilities/variables";
 
-.dropdown {
+.dropdown-wrapper {
   .button {
     box-shadow: none !important;
     &:focus {

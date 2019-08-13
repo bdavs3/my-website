@@ -10,26 +10,28 @@ import "./styles/blog.scss";
 const Blog = ({ data }) => {
   return (
     <Layout>
-      <Head title="Blog" />
-      <section className="section">
-        <h1 className="title blog-title is-1 has-text-centered">Blog</h1>
-      </section>
-      <section className="section">
-        <section className="hero">
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <section key={node.id} className="hero-body">
-              <h3>
-                <Link to={node.fields.slug}>{node.frontmatter.title}</Link>{" "}
-                <span>— {node.frontmatter.date}</span>
-              </h3>
-              <span className="read-time">
-                {`${node.timeToRead}`} minute read
-              </span>
-              <p>{node.excerpt}</p>
-            </section>
-          ))}
+      <div className="blog-wrapper">
+        <Head title="Blog" />
+        <section className="section">
+          <h1 className="title is-1 has-text-centered">Blog</h1>
         </section>
-      </section>
+        <section className="section">
+          <section className="hero">
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <section key={node.id} className="hero-body">
+                <h3>
+                  <Link to={node.fields.slug}>{node.frontmatter.title}</Link>{" "}
+                  <span>— {node.frontmatter.date}</span>
+                </h3>
+                <span className="read-time">
+                  {`${node.timeToRead}`} minute read
+                </span>
+                <p>{node.excerpt}</p>
+              </section>
+            ))}
+          </section>
+        </section>
+      </div>
     </Layout>
   );
 };

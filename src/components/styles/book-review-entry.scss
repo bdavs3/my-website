@@ -1,14 +1,16 @@
-$very-transparent-golden-brown: rgba(164, 143, 108, 0.15);
+@import "../../utilities/variables";
 
-.media-content {
-  overflow: hidden;
-}
+.book-review-entry-wrapper {
+  .media-content {
+    overflow: hidden;
+  }
 
-.box {
-  margin-bottom: 25px;
-  transition-duration: 0.5s;
-  &:hover {
-    cursor: grab;
-    background-color: $very-transparent-golden-brown;
+  .box {
+    margin-bottom: 25px;
+    transition-duration: 0.5s;
+    &:hover {
+      cursor: grab;
+      background-color: $very-transparent-golden-brown;
+    }
   }
 }
