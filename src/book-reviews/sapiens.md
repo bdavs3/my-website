@@ -1,6 +1,6 @@
 ---
 title: "Sapiens"
-author: "Ben Davis"
+author: "Yuval Noah Harari"
 date: "2019-08-12"
 ---
 
