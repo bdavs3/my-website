@@ -7,10 +7,15 @@
 
   .box {
     margin-bottom: 25px;
-    transition-duration: 0.5s;
+    .read-more {
+      transition: all 0.25s ease-in-out;
+    }
     &:hover {
       cursor: grab;
-      background-color: $very-transparent-golden-brown;
+      .read-more {
+        color: $golden-brown;
+        margin-left: 10px;
+      }
     }
   }
 }

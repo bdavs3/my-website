@@ -39,7 +39,7 @@ class BookReview extends React.Component {
             closeModal={this._closeModal}
           />
           <section
-            className="section book-review-title"
+            className="section book-review-title-section"
             onClick={() => this._toggleDropdown("")}
           >
             <h1 className="title is-1 has-text-centered">Book Review</h1>

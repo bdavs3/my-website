@@ -1,7 +1,12 @@
 @import "../../utilities/variables";
 
 .book-review-wrapper {
-  .book-review-title {
+  h1 {
+    font-family: Ostrich Sans;
+    font-weight: normal;
+  }
+
+  .book-review-title-section {
     margin-top: 25px !important;
   }
 

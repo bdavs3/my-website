@@ -30,13 +30,20 @@ class BookReviewEntry extends React.Component {
                 </div>
                 <div className="column is-10">
                   <p>
-                    <strong>John Smith</strong> <small>@johnsmith</small>{" "}
-                    <small>31m</small>
+                    <strong>Sapiens</strong>
+                    <br></br>
+                    <small>Yuval Noah Harari</small>
+                    <br></br>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Aenean efficitur sit amet massa fringilla egestas. Nullam
                     condimentum luctus turpis. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Aenean efficitur sit amet massa
-                    fringilla egestas. Nullam condimentum luctus turpis.
+                    consectetur..Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Aenean efficitur sit amet massa fringilla
+                    egestas. Nullam condimentum luctus turpis. Lorem ipsum dolor
+                    sit amet, consectetur..{" "}
+                    <strong className="read-more" onClick={this._openDetails}>
+                      Read more
+                    </strong>
                   </p>
                 </div>
               </div>
