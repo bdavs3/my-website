@@ -15,13 +15,15 @@ class BookReviewEntry extends React.Component {
   }
 
   render() {
+    const { title, author, excerpt, content } = this.props;
     return (
       <div className="book-review-entry-wrapper">
         <Modal
+          content={content}
           isOpen={this.state.detailsOpen}
           closeModal={this._closeDetails}
         />
-        <div className="box hvr-radial-out" onClick={this._openDetails}>
+        <div className="box" onClick={this._openDetails}>
           <article className="media">
             <div className="media-content">
               <div className="columns">
@@ -30,19 +32,13 @@ class BookReviewEntry extends React.Component {
                 </div>
                 <div className="column is-10">
                   <p>
-                    <strong>Sapiens</strong>
+                    <strong>{title}</strong>
                     <br></br>
-                    <small>Yuval Noah Harari</small>
+                    <small>{author}</small>
                     <br></br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aenean efficitur sit amet massa fringilla egestas. Nullam
-                    condimentum luctus turpis. Lorem ipsum dolor sit amet,
-                    consectetur..Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Aenean efficitur sit amet massa fringilla
-                    egestas. Nullam condimentum luctus turpis. Lorem ipsum dolor
-                    sit amet, consectetur..{" "}
+                    {excerpt}
                     <strong className="read-more" onClick={this._openDetails}>
-                      Read more
+                      {" Read more"}
                     </strong>
                   </p>
                 </div>

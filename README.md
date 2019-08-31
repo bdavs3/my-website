@@ -284,11 +284,11 @@ _Things I still need to take care of at some point!_
 - Figure out a way to write my email address in the footer in a way that prevents spam bots from finding it.
 - Enable "clicking out of" the filters for the book review.. Also make it such that only one may be expanded at a time.
 - Remove google links from various anchor tags in the book review.
-- Okay, I really need the CSS files to stop running into each other. It is becoming a train wreck. Time to search for how to do that.
 - Only allow one dropdown menu to be open at a time in BookReview
 - Get the areas to the left and right of the dropdown filters in the Book Review to close all filters as well
 - Mobile changes:
   - Fix spinning burger in menu – the spans get all messed up
   - Book review dropdowns run into the side
   - Mobile clicks are gross, mostly from hover stuff
-- Footer jumps around on zoom
+- Fix footer jump on zoom
+- Vary excerpt length in book review based on zoom?

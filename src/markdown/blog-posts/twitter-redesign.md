@@ -1,6 +1,7 @@
 ---
 title: "Twitter’s Redesign Isn’t About You"
 date: "2019-07-22"
+type: "blog-post"
 ---
 
 Something unusual happened this week: Twitter got a major redesign, and people hardly freaked out at all. That might be because most of the updates appeared cosmetic, even trivial. But the project’s true aim — according to its lead designer Ashlie Ford — was to make Twitter easier for Twitter to use. And that, in turn, could mean a better Twitter for everyone, eventually.

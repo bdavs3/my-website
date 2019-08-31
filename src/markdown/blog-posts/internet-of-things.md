@@ -1,6 +1,7 @@
 ---
 title: "The Internet of Things Will Have a Huge Impact on Home Utilities"
 date: "2019-07-08"
+type: "blog-post"
 ---
 
 People often talk about how the Internet of Things (IoT) will drastically impact how modern society interacts with technology, but they don’t always consider the specific ways that will happen. One reality is that IoT technology should end the scenario where people receive utility bills and feel shocked by the amounts.

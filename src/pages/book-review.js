@@ -1,4 +1,5 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 
 import Head from "../components/head";
 import Layout from "../components/layout";
@@ -13,12 +14,13 @@ class BookReview extends React.Component {
     super(props);
 
     this.state = {
-      openModal: "",
+      infoOpen: false,
       openDropdown: "",
     };
   }
 
   render() {
+    const { data } = this.props;
     const dropdownOptions = {
       type: { 0: "All", 1: "Fiction", 2: "Non-fiction" },
       genre: {
@@ -34,10 +36,7 @@ class BookReview extends React.Component {
       <Layout>
         <div className="book-review-wrapper">
           <Head title="Book Review" />
-          <Modal
-            isOpen={this.state.openModal === "info"}
-            closeModal={this._closeModal}
-          />
+          <Modal isOpen={this.state.infoOpen} closeModal={this._closeModal} />
           <section
             className="section book-review-title-section"
             onClick={() => this._toggleDropdown("")}
@@ -49,7 +48,7 @@ class BookReview extends React.Component {
             <div className="container has-text-centered">
               <button
                 className="button info-button hvr-shrink"
-                onClick={() => this._openModal("info")}
+                onClick={() => this._openModal()}
               >
                 Information
               </button>
@@ -163,9 +162,16 @@ class BookReview extends React.Component {
           <section className="section" onClick={() => this._toggleDropdown("")}>
             <div className="hero">
               <div className="hero-body entries">
-                <BookReviewEntry />
-                <BookReviewEntry />
-                <BookReviewEntry />
+                {data.allMarkdownRemark.edges.map(({ node }) => (
+                  <div>
+                    <BookReviewEntry
+                      title={node.frontmatter.title}
+                      author={node.frontmatter.author}
+                      excerpt={node.excerpt}
+                      content={node.html}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -174,15 +180,15 @@ class BookReview extends React.Component {
     );
   }
 
-  _openModal = modalName => {
+  _openModal = () => {
     this.setState({
-      openModal: modalName,
+      infoOpen: true,
     });
   };
 
   _closeModal = () => {
     this.setState({
-      openModal: "",
+      infoOpen: false,
     });
   };
 
@@ -194,4 +200,32 @@ class BookReview extends React.Component {
   };
 }
 
-export default BookReview;
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { frontmatter: { type: { eq: "book-review" } } }
+        ) {
+          totalCount
+          edges {
+            node {
+              html
+              frontmatter {
+                title
+                author
+                date(formatString: "DD MMMM, YYYY")
+              }
+              fields {
+                slug
+              }
+              excerpt(pruneLength: 350)
+            }
+          }
+        }
+      }
+    `}
+    render={data => <BookReview data={data} {...props} />}
+  />
+);

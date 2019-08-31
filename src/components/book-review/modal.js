@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/modal.scss";
 
 const Modal = props => {
-  const { isOpen, closeModal } = props;
+  const { content, isOpen, closeModal } = props;
   return (
     <div className="modal-wrapper">
       <div className={`modal ${isOpen ? "is-active" : ""}`}>
@@ -18,11 +18,7 @@ const Modal = props => {
             ></button>
           </header>
           <section className="modal-card-body">
-            Aenean vulputate eleifend tellus. Sed augue ipsum, egestas nec,
-            vestibulum et, malesuada adipiscing, dui. Proin pretium, leo ac
-            pellentesque mollis, felis nunc ultrices eros, sed gravida augue
-            augue mollis justo. Pellentesque posuere. Ut a nisl id ante tempus
-            hendrerit.
+            <div dangerouslySetInnerHTML={{ __html: content }} />
           </section>
           <footer className="modal-card-foot">
             <button className="button">Save changes</button>
