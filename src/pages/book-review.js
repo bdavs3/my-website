@@ -61,7 +61,7 @@ class BookReview extends React.Component {
                 <div className="level-left">
                   <div className="level-item">
                     <span>
-                      <b>123</b> books
+                      <b>{data.allMarkdownRemark.totalCount}</b> books
                     </span>
                   </div>
                   <div className="level-item">
@@ -112,7 +112,7 @@ class BookReview extends React.Component {
               <nav className="level is-mobile">
                 <div className="level-item">
                   <span>
-                    <b>123</b> books
+                    <b>{data.allMarkdownRemark.totalCount}</b> books
                   </span>
                 </div>
               </nav>

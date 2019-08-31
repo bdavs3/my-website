@@ -168,6 +168,15 @@ This helped me figure out how to configure my dropdown menus as well. It is easy
 </p>
 </details>
 
+<details><summary>Getting data from GraphQL in a React class</summary>
+<p>
+I couldn't figure out how to pull data into the book review at first, because all the Gatsby docs use shorthand functions for components / pages that are used to demonstrate GraphQL.
+
+I needed my book review to be a class because it needs to keep track of state. I couldn't figure out how to do the query to grab the book review content, but I had the sense that I needed to somehow utilize StaticQuery. My suspicions were confirmed when I stumbled upon <a href="https://spectrum.chat/gatsby-js/general/is-this-a-good-way-of-using-gatsby-v2s-staticquery-with-react-component-class~d9db7af2-f594-4199-9640-8756f39876d5">this post</a>. I still don't understand how it works, but hey, at least it works at all.
+
+</p>
+</details>
+
 ### Things I Have Learned
 
 _I will be documenting important things I pick up here._
@@ -292,3 +301,11 @@ _Things I still need to take care of at some point!_
   - Mobile clicks are gross, mostly from hover stuff
 - Fix footer jump on zoom
 - Vary excerpt length in book review based on zoom?
+- Change title fonts, since I'm going for a space theme
+
+### Next Tasks
+
+- Configure the info modal in the book review
+- Use the same block for desktop and mobile in book-review
+- Get images in book review books
+- Enable sorting and searching books
