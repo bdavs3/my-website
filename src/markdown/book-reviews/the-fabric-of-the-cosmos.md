@@ -2,7 +2,8 @@
 title: "The Fabric of the Cosmos"
 author: "Brian Green"
 date: "2019-08-29"
-type: "book-review"
+class: "book-review"
+type: "entry"
 ---
 
 Dr. Greene is an outstanding writer who explains the complex theories and hypotheses of String/M Theory and research into the very fabric of space and time. This book is an effort to put into terms at a layman's level, the very complex research going on today at places across the globe attempting to discover the fundamental makeup of the universe. For the most part Dr. Greene succeeds in his effort to make this intensely complex subject understandable.

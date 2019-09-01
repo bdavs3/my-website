@@ -21,6 +21,10 @@ class BookReview extends React.Component {
 
   render() {
     const { data } = this.props;
+
+    // Subtract 1 to account for 'info' page in "~/markdown/book-reviews/"
+    const totalBooks = data.allMarkdownRemark.totalCount - 1;
+
     const dropdownOptions = {
       type: { 0: "All", 1: "Fiction", 2: "Non-fiction" },
       genre: {
@@ -36,7 +40,17 @@ class BookReview extends React.Component {
       <Layout>
         <div className="book-review-wrapper">
           <Head title="Book Review" />
-          <Modal isOpen={this.state.infoOpen} closeModal={this._closeModal} />
+          <Modal
+            title="Why it's important to read"
+            author="Brian Greene"
+            content={
+              data.allMarkdownRemark.edges.filter(
+                ({ node }) => node.frontmatter.type === "info"
+              )[0].node.html
+            }
+            isOpen={this.state.infoOpen}
+            closeModal={this._closeModal}
+          />
           <section
             className="section book-review-title-section"
             onClick={() => this._toggleDropdown("")}
@@ -61,7 +75,7 @@ class BookReview extends React.Component {
                 <div className="level-left">
                   <div className="level-item">
                     <span>
-                      <b>{data.allMarkdownRemark.totalCount}</b> books
+                      <b>{totalBooks}</b> books
                     </span>
                   </div>
                   <div className="level-item">
@@ -162,16 +176,17 @@ class BookReview extends React.Component {
           <section className="section" onClick={() => this._toggleDropdown("")}>
             <div className="hero">
               <div className="hero-body entries">
-                {data.allMarkdownRemark.edges.map(({ node }) => (
-                  <div>
+                {data.allMarkdownRemark.edges
+                  .filter(({ node }) => node.frontmatter.type === "entry")
+                  .map(({ node, key }) => (
                     <BookReviewEntry
+                      key={key}
                       title={node.frontmatter.title}
                       author={node.frontmatter.author}
                       excerpt={node.excerpt}
                       content={node.html}
                     />
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           </section>
@@ -206,7 +221,7 @@ export default props => (
       query {
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
-          filter: { frontmatter: { type: { eq: "book-review" } } }
+          filter: { frontmatter: { class: { eq: "book-review" } } }
         ) {
           totalCount
           edges {
@@ -216,9 +231,7 @@ export default props => (
                 title
                 author
                 date(formatString: "DD MMMM, YYYY")
-              }
-              fields {
-                slug
+                type
               }
               excerpt(pruneLength: 350)
             }

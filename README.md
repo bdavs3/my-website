@@ -302,10 +302,16 @@ _Things I still need to take care of at some point!_
 - Fix footer jump on zoom
 - Vary excerpt length in book review based on zoom?
 - Change title fonts, since I'm going for a space theme
+- Position image in mobile book review listings to left of excerpt text
+- Change slugs of dynamically generated pages such that they don't include "/markdown"
+- Write tests
+- Check unique key warning on book review and warning on lazy loading images
 
 ### Next Tasks
 
 - Configure the info modal in the book review
+- Subtract 1 from total count next to search bar
 - Use the same block for desktop and mobile in book-review
 - Get images in book review books
 - Enable sorting and searching books
+- Adjust 'total count' label when filtering / searching books?

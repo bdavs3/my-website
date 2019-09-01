@@ -10,12 +10,20 @@
     .read-more {
       transition: all 0.25s ease-in-out;
     }
-    &:hover {
-      cursor: grab;
-      .read-more {
-        color: $golden-brown;
-        margin-left: 10px;
+    @media screen and (min-width: 768px) {
+      &:hover {
+        cursor: grab;
+        .read-more {
+          color: $golden-brown;
+          margin-left: 10px;
+        }
       }
+    }
+  }
+
+  .read-more {
+    @media screen and (max-width: 767px) {
+      color: $golden-brown;
     }
   }
 }

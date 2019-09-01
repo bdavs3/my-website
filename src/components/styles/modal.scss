@@ -1,9 +1,39 @@
+@import "../../utilities/variables";
+
 .modal-wrapper {
-  .modal-card {
-    padding: 15px 15px;
+  @media screen and (max-width: 767px) {
+    .modal-card {
+      width: 85vw !important;
+    }
+    .modal-card-head {
+      display: block;
+    }
+    button.delete {
+      display: none;
+    }
+    .modal-card-foot {
+      padding: 5px;
+      button {
+        margin: auto;
+        width: 25%;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .modal-card {
+      width: 60vw;
+    }
   }
 
   .title {
     margin-bottom: 0px !important;
+  }
+
+  .modal-card-foot {
+    button {
+      background-color: $golden-brown;
+      color: white;
+    }
   }
 }

@@ -1,7 +1,9 @@
 ---
 title: "10 Bad Habits of Unsuccessful People"
+author: "Test"
 date: "2019-07-15"
-type: "blog-post"
+class: "blog-post"
+type: ""
 ---
 
 The first successful person I ever met — truly successful, with accomplishments I admired and ambition I strove to emulate — was an entrepreneur in his forties, a client of mine in the first real business I’d ever started. I was 24 and eager to learn; he was constantly cheerful, and had more money than he could count.

@@ -26,8 +26,9 @@ const Modal = props => {
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </section>
           <footer className="modal-card-foot">
-            <button className="button">Save changes</button>
-            <button className="button">Cancel</button>
+            <button className="button" onClick={closeModal}>
+              Exit
+            </button>
           </footer>
         </div>
       </div>

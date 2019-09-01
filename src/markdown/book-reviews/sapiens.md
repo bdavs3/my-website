@@ -2,7 +2,8 @@
 title: "Sapiens"
 author: "Yuval Noah Harari"
 date: "2019-08-12"
-type: "book-review"
+class: "book-review"
+type: "entry"
 ---
 
 Human beings (members of the genus Homo) have existed for about 2.4m years. Homo sapiens, our own wildly egregious species of great apes, has only existed for 6% of that time – about 150,000 years. So a book whose main title is Sapiens shouldn't be subtitled "A Brief History of Humankind". It's easy to see why Yuval Noah Harari devotes 95% of his book to us as a species: self-ignorant as we are, we still know far more about ourselves than about other species of human beings, including several that have become extinct since we first walked the Earth. The fact remains that the history of sapiens – Harari's name for us – is only a very small part of the history of humankind.

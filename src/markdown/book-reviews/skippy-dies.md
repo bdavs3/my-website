@@ -2,7 +2,8 @@
 title: "Skippy Dies"
 author: "Paul Murray"
 date: "2019-08-30"
-type: "book-review"
+class: "book-review"
+type: "entry"
 ---
 
 With "Skippy Dies," Paul Murray drags---no, hurls-- the fusty genre of the boys' boarding school novel into the 21st century. As always, there are troubled or befuddled adolescents; clueless or hapless teachers; blinkered administrators intent on preserving moribund traditions to decorate the flyers of the next capital campaign. And as always there are predatory upperclassmen and mysterious girls going to and fro in the sister school next door.
