@@ -33,7 +33,7 @@ exports.createPages = ({ graphql, actions }) => {
         path: node.fields.slug,
         component: path.resolve(`./src/templates/blog-post.js`),
         context: {
-          slug: nodes.fields.slug,
+          slug: node.fields.slug,
         },
       });
     });

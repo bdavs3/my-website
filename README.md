@@ -286,8 +286,6 @@ I added this script to <b>package.json</b> because it is useful to have it in sh
 
 ### Todo
 
-_Things I still need to take care of at some point!_
-
 - Don't re-trigger the hover animation on desktop header links when you click on of them to visit a different page.
 - Get a graphic designer to make some cool things for the landing page!
 - Figure out a way to write my email address in the footer in a way that prevents spam bots from finding it.
@@ -304,7 +302,6 @@ _Things I still need to take care of at some point!_
 - Change title fonts, since I'm going for a space theme
 - Position image in mobile book review listings to left of excerpt text
 - Change slugs of dynamically generated pages such that they don't include "/markdown"
-- Write tests
 - Check unique key warning on book review and warning on lazy loading images
 - In the mobile book review, line up the dropdowns horizontally instead of stacking them
 

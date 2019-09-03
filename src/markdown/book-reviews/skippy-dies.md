@@ -1,6 +1,7 @@
 ---
 title: "Skippy Dies"
 author: "Paul Murray"
+coverImage: "book-cover-images/skippy-dies.jpg"
 date: "2019-08-30"
 class: "book-review"
 type: "entry"

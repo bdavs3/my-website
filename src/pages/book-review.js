@@ -14,26 +14,12 @@ class BookReview extends React.Component {
     super(props);
 
     this.state = {
-      width: window.innerWidth,
-      height: window.innerHeight,
       infoOpen: false,
       openDropdown: "",
     };
-
-    this._updateWindowDimensions = this._updateWindowDimensions;
-  }
-
-  componentDidMount() {
-    this._updateWindowDimensions();
-    window.addEventListener("resize", this._updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this._updateWindowDimensions);
   }
 
   render() {
-    console.log(this.state.width);
     const { data } = this.props;
 
     // Subtract 1 to account for 'info' page in "~/markdown/book-reviews/"
@@ -145,6 +131,7 @@ class BookReview extends React.Component {
                       key={key}
                       title={node.frontmatter.title}
                       author={node.frontmatter.author}
+                      coverImage={node.frontmatter.coverImage}
                       excerpt={node.excerpt}
                       content={node.html}
                     />
@@ -175,13 +162,6 @@ class BookReview extends React.Component {
         this.state.openDropdown !== dropdownName ? dropdownName : "",
     });
   };
-
-  _updateWindowDimensions = () => {
-    this.setState({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  };
 }
 
 export default props => (
@@ -199,6 +179,7 @@ export default props => (
               frontmatter {
                 title
                 author
+                coverImage
                 date(formatString: "DD MMMM, YYYY")
                 type
               }

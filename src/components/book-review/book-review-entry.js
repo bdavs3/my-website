@@ -15,7 +15,7 @@ class BookReviewEntry extends React.Component {
   }
 
   render() {
-    const { title, author, excerpt, content } = this.props;
+    const { title, author, coverImage, excerpt, content } = this.props;
     return (
       <div className="book-review-entry-wrapper">
         <Modal
@@ -30,7 +30,7 @@ class BookReviewEntry extends React.Component {
             <div className="media-content">
               <div className="columns">
                 <div className="column is-2">
-                  <Image fileName="200x300.png" className="book-cover" />
+                  <Image fileName={coverImage} className="book-cover" />
                 </div>
                 <div className="column is-10">
                   <p>

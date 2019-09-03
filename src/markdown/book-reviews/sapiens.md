@@ -1,6 +1,7 @@
 ---
 title: "Sapiens"
 author: "Yuval Noah Harari"
+coverImage: "book-cover-images/sapiens.jpg"
 date: "2019-08-12"
 class: "book-review"
 type: "entry"
