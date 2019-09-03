@@ -10,11 +10,9 @@
     margin-top: 25px !important;
   }
 
-  .entries {
-    padding: 0% 15% !important;
-    @media screen and (max-width: 767px) {
-      padding: 0% 10% !important;
-    }
+  .search-text {
+    color: $golden-brown;
+    box-shadow: none;
   }
 
   .book-search a {
@@ -50,6 +48,9 @@
     background-color: $golden-brown;
     a {
       color: white;
+      &:hover {
+        color: $golden-brown;
+      }
     }
   }
 
@@ -57,35 +58,29 @@
     margin: 0% 10%;
   }
 
-  .level-left {
-    @media screen and (min-width: 768px) {
-      margin-right: 2.5%;
+  .level.is-mobile {
+    .level-item {
+      input {
+        width: 95% !important;
+      }
     }
   }
 
-  .level-right {
-    @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
+    .entries {
+      padding: 0% 15%;
+    }
+    .level-left {
+      margin-right: 2.5%;
+    }
+    .level-right {
       margin-left: 2.5%;
     }
   }
 
-  .desktop-level {
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-  }
-
-  .mobile-level {
-    @media screen and (min-width: 768px) {
-      display: none;
-    }
-  }
-
-  .level.is-mobile {
-    .level-item {
-      input {
-        width: 95%;
-      }
+  @media screen and (max-width: 767px) {
+    .entries {
+      padding: 0% 10%;
     }
   }
 

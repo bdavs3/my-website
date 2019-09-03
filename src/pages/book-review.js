@@ -14,12 +14,26 @@ class BookReview extends React.Component {
     super(props);
 
     this.state = {
+      width: window.innerWidth,
+      height: window.innerHeight,
       infoOpen: false,
       openDropdown: "",
     };
+
+    this._updateWindowDimensions = this._updateWindowDimensions;
+  }
+
+  componentDidMount() {
+    this._updateWindowDimensions();
+    window.addEventListener("resize", this._updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._updateWindowDimensions);
   }
 
   render() {
+    console.log(this.state.width);
     const { data } = this.props;
 
     // Subtract 1 to account for 'info' page in "~/markdown/book-reviews/"
@@ -80,7 +94,7 @@ class BookReview extends React.Component {
                   </div>
                   <div className="level-item">
                     <input
-                      className="input"
+                      className="search-text input"
                       type="text"
                       placeholder="Find a book"
                     />
@@ -116,58 +130,6 @@ class BookReview extends React.Component {
                       toggleDropdown={() => this._toggleDropdown("sort")}
                     />
                   </div>
-                </div>
-              </nav>
-            </div>
-          </section>
-
-          <section className="section mobile-level">
-            <div className="container level-holder">
-              <nav className="level is-mobile">
-                <div className="level-item">
-                  <span>
-                    <b>{data.allMarkdownRemark.totalCount}</b> books
-                  </span>
-                </div>
-              </nav>
-              <nav className="level is-mobile">
-                <div className="level-item">
-                  <input
-                    className="input"
-                    type="text"
-                    placeholder="Find a book"
-                  />
-                </div>
-                <div className="level-item book-search">
-                  <a href="http://google.com" className="button">
-                    Search
-                  </a>
-                </div>
-              </nav>
-              <nav className="level is-mobile">
-                <div className="level-item">
-                  <Dropdown
-                    title="Type"
-                    options={dropdownOptions.type}
-                    active={this.state.openDropdown === "type"}
-                    toggleDropdown={() => this._toggleDropdown("type")}
-                  />
-                </div>
-                <div className="level-item">
-                  <Dropdown
-                    title="Genre"
-                    options={dropdownOptions.genre}
-                    active={this.state.openDropdown === "genre"}
-                    toggleDropdown={() => this._toggleDropdown("genre")}
-                  />
-                </div>
-                <div className="level-item">
-                  <Dropdown
-                    title="Sort By"
-                    options={dropdownOptions.sort}
-                    active={this.state.openDropdown === "sort"}
-                    toggleDropdown={() => this._toggleDropdown("sort")}
-                  />
                 </div>
               </nav>
             </div>
@@ -211,6 +173,13 @@ class BookReview extends React.Component {
     this.setState({
       openDropdown:
         this.state.openDropdown !== dropdownName ? dropdownName : "",
+    });
+  };
+
+  _updateWindowDimensions = () => {
+    this.setState({
+      width: window.innerWidth,
+      height: window.innerHeight,
     });
   };
 }
