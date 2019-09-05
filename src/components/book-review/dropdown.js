@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/dropdown.scss";
+import "./styles/dropdown.scss";
 
 const Dropdown = props => {
   const { title, options, active, toggleDropdown } = props;

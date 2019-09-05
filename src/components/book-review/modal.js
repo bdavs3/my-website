@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/modal.scss";
+import "./styles/modal.scss";
 
 const Modal = props => {
   const { title, author, content, isOpen, closeModal } = props;

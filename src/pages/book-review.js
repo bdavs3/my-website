@@ -131,6 +131,7 @@ class BookReview extends React.Component {
                       key={key}
                       title={node.frontmatter.title}
                       author={node.frontmatter.author}
+                      tags={node.frontmatter.tags}
                       coverImage={node.frontmatter.coverImage}
                       excerpt={node.excerpt}
                       content={node.html}
@@ -182,6 +183,7 @@ export default props => (
                 coverImage
                 date(formatString: "DD MMMM, YYYY")
                 type
+                tags
               }
               excerpt(pruneLength: 350)
             }

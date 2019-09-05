@@ -2,6 +2,7 @@
 title: "The Fabric of the Cosmos"
 author: "Brian Green"
 coverImage: "book-cover-images/the-fabric-of-the-cosmos.jpg"
+tags: ["Non-fiction", "Physics", "Cosmology"]
 date: "2019-08-29"
 class: "book-review"
 type: "entry"

@@ -1,4 +1,4 @@
-@import "../../utilities/variables";
+@import "../../../utilities/variables";
 
 .book-review-entry-wrapper {
   .media-content {
@@ -25,5 +25,9 @@
     @media screen and (max-width: 767px) {
       color: $golden-brown;
     }
+  }
+
+  .tag-section {
+    margin-top: 5px;
   }
 }

@@ -2,8 +2,9 @@ import React from "react";
 
 import Image from "../image";
 import Modal from "./modal";
+import Tag from "./tag";
 
-import "../styles/book-review-entry.scss";
+import "./styles/book-review-entry.scss";
 
 class BookReviewEntry extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class BookReviewEntry extends React.Component {
   }
 
   render() {
-    const { title, author, coverImage, excerpt, content } = this.props;
+    const { title, author, coverImage, tags, excerpt, content } = this.props;
     return (
       <div className="book-review-entry-wrapper">
         <Modal
@@ -43,6 +44,11 @@ class BookReviewEntry extends React.Component {
                       {" Read more"}
                     </strong>
                   </p>
+                  <section className="section tag-section">
+                    {tags.map(tag => (
+                      <Tag label={tag} />
+                    ))}
+                  </section>
                 </div>
               </div>
             </div>
