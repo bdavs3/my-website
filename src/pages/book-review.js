@@ -16,6 +16,8 @@ class BookReview extends React.Component {
     this.state = {
       infoOpen: false,
       openDropdown: "",
+      filters: [],
+      sort: "",
     };
   }
 
@@ -24,17 +26,11 @@ class BookReview extends React.Component {
 
     // Subtract 1 to account for 'info' page in "~/markdown/book-reviews/"
     const totalBooks = data.allMarkdownRemark.totalCount - 1;
-
-    const dropdownOptions = {
-      type: { 0: "All", 1: "Fiction", 2: "Non-fiction" },
-      genre: {
-        0: "Psychology",
-        1: "Sci-Fi",
-        2: "Science",
-        3: "Crime",
-      },
-      sort: { 0: "Recent", 1: "Best", 2: "Alphabetical" },
+    const filterOptions = {
+      type: ["All", "Fiction", "Non-fiction"],
+      genre: ["Psychology", "Sci-Fi", "Science", "Crime"],
     };
+    const sortOptions = ["Recent", "Best", "Alphabetical"];
 
     return (
       <Layout>
@@ -69,7 +65,7 @@ class BookReview extends React.Component {
             </div>
           </section>
 
-          <section className="section desktop-level">
+          <section className="section">
             <div className="container level-holder">
               <nav className="level">
                 <div className="level-left">
@@ -92,30 +88,29 @@ class BookReview extends React.Component {
                   </div>
                 </div>
                 <div className="level-right">
-                  <div className="level-item">
-                    <Dropdown
-                      title="Type"
-                      options={dropdownOptions.type}
-                      active={this.state.openDropdown === "type"}
-                      toggleDropdown={() => this._toggleDropdown("type")}
-                    />
-                  </div>
-                  <div className="level-item">
-                    <Dropdown
-                      title="Genre"
-                      options={dropdownOptions.genre}
-                      active={this.state.openDropdown === "genre"}
-                      toggleDropdown={() => this._toggleDropdown("genre")}
-                    />
-                  </div>
-                  <div className="level-item">
-                    <Dropdown
-                      title="Sort By"
-                      options={dropdownOptions.sort}
-                      active={this.state.openDropdown === "sort"}
-                      toggleDropdown={() => this._toggleDropdown("sort")}
-                    />
-                  </div>
+                  {Object.keys(filterOptions).map((heading, key) => {
+                    const upperCaseHeading =
+                      heading.charAt(0).toUpperCase() + heading.slice(1);
+                    return (
+                      <div className="level-item">
+                        <Dropdown
+                          key={key}
+                          title={upperCaseHeading}
+                          options={filterOptions[heading]}
+                          active={this.state.openDropdown === heading}
+                          toggleDropdown={() => this._toggleDropdown(heading)}
+                          itemClick={this._dropdownItemClick}
+                        />
+                      </div>
+                    );
+                  })}
+                  <Dropdown
+                    title={"Sort"}
+                    options={sortOptions}
+                    active={this.state.openDropdown === "sort"}
+                    toggleDropdown={() => this._toggleDropdown("sort")}
+                    itemClick={this._dropdownItemClick}
+                  />
                 </div>
               </nav>
             </div>
@@ -161,6 +156,17 @@ class BookReview extends React.Component {
     this.setState({
       openDropdown:
         this.state.openDropdown !== dropdownName ? dropdownName : "",
+    });
+  };
+
+  _dropdownItemClick = item => {
+    this.setState(state => {
+      const filters = state.filters.includes(item)
+        ? state.filters
+        : state.filters.concat(item);
+      return {
+        filters,
+      };
     });
   };
 }

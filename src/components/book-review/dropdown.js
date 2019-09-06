@@ -3,14 +3,7 @@ import React from "react";
 import "./styles/dropdown.scss";
 
 const Dropdown = props => {
-  const { title, options, active, toggleDropdown } = props;
-  const menuItems = Object.entries(options).map(([key, value]) => {
-    return (
-      <a key={key} href="http://google.com" className="dropdown-item">
-        {value}
-      </a>
-    );
-  });
+  const { title, options, active, toggleDropdown, itemClick } = props;
 
   return (
     <div className="dropdown-wrapper">
@@ -26,7 +19,19 @@ const Dropdown = props => {
           </button>
         </div>
         <div className="dropdown-menu" id="dropdown-menu" role="menu">
-          <div className="dropdown-content">{menuItems}</div>
+          <div className="dropdown-content">
+            {options.map((value, key) => {
+              return (
+                <button
+                  key={key}
+                  className="dropdown-item"
+                  onClick={() => itemClick(value)}
+                >
+                  {value}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

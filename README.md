@@ -304,9 +304,11 @@ I added this script to <b>package.json</b> because it is useful to have it in sh
 - Change slugs of dynamically generated pages such that they don't include "/markdown"
 - Check unique key warning on book review and warning on lazy loading images
 - In the mobile book review, line up the dropdowns horizontally instead of stacking them
+- Add some light animations to the book review
 
 ### Next Tasks
 
-- Get images in book review books
 - Enable sorting and searching books
-  - Adjust 'total count' label when filtering / searching books?
+  - Adjust 'total count' label when filtering / searching books
+  - Add selected filters to a horizontal bar above reviews
+    - Allow these filters to be removed by clicking them

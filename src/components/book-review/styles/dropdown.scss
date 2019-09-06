@@ -13,11 +13,15 @@
     }
   }
 
-  .dropdown-content {
-    a {
-      &:hover {
-        color: $dark-gray;
-      }
+  .dropdown-item {
+    border: none;
+    background-color: $golden-brown;
+    color: white;
+    &:hover {
+      background-color: white;
+      color: $golden-brown;
+      cursor: pointer;
     }
+    outline: none;
   }
 }

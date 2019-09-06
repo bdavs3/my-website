@@ -36,9 +36,9 @@ class BookReviewEntry extends React.Component {
                 <div className="column is-10">
                   <p>
                     <strong>{title}</strong>
-                    <br></br>
+                    <br />
                     <small>{author}</small>
-                    <br></br>
+                    <br />
                     {excerpt}
                     <strong className="read-more" onClick={this._openDetails}>
                       {" Read more"}
