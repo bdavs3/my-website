@@ -1,6 +1,9 @@
 import React from "react";
+import _ from "lodash";
+import { StaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 
-import Image from "../image";
+import FluidImage from "../utilities/fluid-image";
 import Modal from "./modal";
 import Tag from "./tag";
 
@@ -16,13 +19,24 @@ class BookReviewEntry extends React.Component {
   }
 
   render() {
-    const { title, author, coverImage, tags, excerpt, content } = this.props;
+    const {
+      data,
+      author,
+      content,
+      coverImage,
+      excerpt,
+      rating,
+      title,
+      tags,
+    } = this.props;
+
     return (
       <div className="book-review-entry-wrapper">
         <Modal
-          title={title}
           author={author}
           content={content}
+          rating={rating}
+          title={title}
           isOpen={this.state.detailsOpen}
           closeModal={this._closeDetails}
         />
@@ -31,19 +45,27 @@ class BookReviewEntry extends React.Component {
             <div className="media-content">
               <div className="columns">
                 <div className="column is-2">
-                  <Image fileName={coverImage} className="book-cover" />
+                  <FluidImage fileName={coverImage} className="book-cover" />
                 </div>
                 <div className="column is-10">
-                  <p>
-                    <strong>{title}</strong>
-                    <br />
-                    <small>{author}</small>
-                    <br />
-                    {excerpt}
-                    <strong className="read-more" onClick={this._openDetails}>
-                      {" Read more"}
-                    </strong>
-                  </p>
+                  <strong>{title}</strong>
+                  {_.times(rating, () => (
+                    <Img
+                      className="rating-star"
+                      fixed={data.rating_star.childImageSharp.fixed}
+                    />
+                  ))}
+
+                  <br />
+
+                  <small>{author}</small>
+
+                  <br />
+
+                  {excerpt}
+                  <strong className="read-more" onClick={this._openDetails}>
+                    {" Read more"}
+                  </strong>
                   <section className="section tag-section">
                     {tags.map(tag => (
                       <Tag label={tag} />
@@ -71,4 +93,19 @@ class BookReviewEntry extends React.Component {
   };
 }
 
-export default BookReviewEntry;
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        rating_star: file(relativePath: { eq: "rating-star.png" }) {
+          childImageSharp {
+            fixed(width: 18, height: 18) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `}
+    render={data => <BookReviewEntry data={data} {...props} />}
+  />
+);

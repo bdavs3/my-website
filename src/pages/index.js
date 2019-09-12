@@ -4,7 +4,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import Head from "../components/head";
 import Layout from "../components/layout";
-import Image from "../components/image";
+import FluidImage from "../components/utilities/fluid-image";
 
 import "../styles.scss";
 import "./styles/index.scss";
@@ -18,7 +18,7 @@ const IndexPage = () => (
       <Head title="Home" />
       <section className="section">
         <section className="hero main-img">
-          <Image fileName="1920x1080.png" />
+          <FluidImage fileName="1920x1080.png" />
         </section>
         <section className="hero">
           <div className="navigator hero-body has-text-centered">

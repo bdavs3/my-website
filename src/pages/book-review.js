@@ -124,12 +124,13 @@ class BookReview extends React.Component {
                   .map(({ node, key }) => (
                     <BookReviewEntry
                       key={key}
-                      title={node.frontmatter.title}
                       author={node.frontmatter.author}
-                      tags={node.frontmatter.tags}
+                      content={node.html}
                       coverImage={node.frontmatter.coverImage}
                       excerpt={node.excerpt}
-                      content={node.html}
+                      rating={node.frontmatter.rating}
+                      tags={node.frontmatter.tags}
+                      title={node.frontmatter.title}
                     />
                   ))}
               </div>
@@ -184,12 +185,13 @@ export default props => (
             node {
               html
               frontmatter {
-                title
                 author
                 coverImage
                 date(formatString: "DD MMMM, YYYY")
-                type
+                rating
                 tags
+                title
+                type
               }
               excerpt(pruneLength: 350)
             }

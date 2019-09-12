@@ -1,8 +1,8 @@
 ---
-title: "Test"
 author: "Ben Davis"
-date: "2019-08-31"
 class: "book-review"
+date: "2019-08-31"
+title: "Test"
 type: "info"
 ---
 

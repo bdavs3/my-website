@@ -26,6 +26,10 @@
     }
   }
 
+  .modal-card-title {
+    line-height: 1.25em;
+  }
+
   .title {
     margin-bottom: 0px !important;
   }
@@ -35,5 +39,9 @@
       background-color: $golden-brown;
       color: white;
     }
+  }
+
+  .rating-star {
+    margin-left: 5px;
   }
 }

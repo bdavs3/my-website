@@ -1,19 +1,31 @@
 import React from "react";
+import _ from "lodash";
+import { StaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 
 import "./styles/modal.scss";
 
 const Modal = props => {
-  const { title, author, content, isOpen, closeModal } = props;
+  const { data, author, content, rating, title, isOpen, closeModal } = props;
   return (
     <div className="modal-wrapper">
       <div className={`modal ${isOpen ? "is-active" : ""}`}>
         <div className="modal-background" onClick={closeModal}></div>
         <div className="modal-card">
           <header className="modal-card-head">
-            <p className="modal-card-title">
+            <div className="modal-card-title">
               <b>{title}</b>
+              {_.times(rating, () => (
+                <Img
+                  className="rating-star"
+                  fixed={data.rating_star.childImageSharp.fixed}
+                />
+              ))}
+
+              <br />
+
               {` by ${author}`}
-            </p>
+            </div>
             <button
               className="delete"
               onClick={closeModal}
@@ -36,4 +48,19 @@ const Modal = props => {
   );
 };
 
-export default Modal;
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        rating_star: file(relativePath: { eq: "rating-star.png" }) {
+          childImageSharp {
+            fixed(width: 18, height: 18) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `}
+    render={data => <Modal data={data} {...props} />}
+  />
+);

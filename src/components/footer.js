@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import Image from "./image";
+import FluidImage from "./utilities/fluid-image";
 
 import "./styles/footer.scss";
 
@@ -45,7 +45,7 @@ const Footer = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image className="icon" fileName="github-icon.png" />
+                  <FluidImage className="icon" fileName="github-icon.png" />
                 </a>
               </div>
               <div className="column is-one-quarter">
@@ -54,7 +54,7 @@ const Footer = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image className="icon" fileName="linkedin-icon.png" />
+                  <FluidImage className="icon" fileName="linkedin-icon.png" />
                 </a>
               </div>
               <div className="column is-one-quarter">
@@ -63,7 +63,7 @@ const Footer = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image className="icon" fileName="goodreads-icon.png" />
+                  <FluidImage className="icon" fileName="goodreads-icon.png" />
                 </a>
               </div>
             </div>
