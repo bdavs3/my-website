@@ -36,17 +36,18 @@ class BookReview extends React.Component {
       <Layout>
         <div className="book-review-wrapper">
           <Head title="Book Review" />
-          <Modal
-            title="Why it's important to read"
-            author="Brian Greene"
-            content={
-              data.allMarkdownRemark.edges.filter(
-                ({ node }) => node.frontmatter.type === "info"
-              )[0].node.html
-            }
-            isOpen={this.state.infoOpen}
-            closeModal={this._closeModal}
-          />
+          {data.allMarkdownRemark.edges
+            .filter(({ node }) => node.frontmatter.type === "info")
+            .map(({ node, key }) => (
+              <Modal
+                key={key}
+                title={node.frontmatter.title}
+                author={node.frontmatter.author}
+                content={node.html}
+                isOpen={this.state.infoOpen}
+                closeModal={this._closeModal}
+              />
+            ))}
           <section
             className="section book-review-title-section"
             onClick={() => this._toggleDropdown("")}
@@ -60,7 +61,7 @@ class BookReview extends React.Component {
                 className="button info-button hvr-shrink"
                 onClick={() => this._openModal()}
               >
-                Information
+                My Rating Schema
               </button>
             </div>
           </section>
@@ -104,13 +105,15 @@ class BookReview extends React.Component {
                       </div>
                     );
                   })}
-                  <Dropdown
-                    title={"Sort"}
-                    options={sortOptions}
-                    active={this.state.openDropdown === "sort"}
-                    toggleDropdown={() => this._toggleDropdown("sort")}
-                    itemClick={this._dropdownItemClick}
-                  />
+                  <div className="level-item">
+                    <Dropdown
+                      title={"Sort"}
+                      options={sortOptions}
+                      active={this.state.openDropdown === "sort"}
+                      toggleDropdown={() => this._toggleDropdown("sort")}
+                      itemClick={this._dropdownItemClick}
+                    />
+                  </div>
                 </div>
               </nav>
             </div>
