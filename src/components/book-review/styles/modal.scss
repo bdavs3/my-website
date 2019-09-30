@@ -44,4 +44,12 @@
   .rating-star {
     margin-left: 5px;
   }
+
+  .cover-image-wrapper {
+    padding: 0 35%;
+    @media screen and (max-width: 767px) {
+      padding: 0 25%;
+    }
+    margin: 2% 0;
+  }
 }

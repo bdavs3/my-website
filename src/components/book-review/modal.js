@@ -3,10 +3,21 @@ import _ from "lodash";
 import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
+import FluidImage from "../utilities/fluid-image";
+
 import "./styles/modal.scss";
 
 const Modal = props => {
-  const { data, author, content, rating, title, isOpen, closeModal } = props;
+  const {
+    data,
+    author,
+    content,
+    coverImage,
+    rating,
+    title,
+    isOpen,
+    closeModal,
+  } = props;
   return (
     <div className="modal-wrapper">
       <div className={`modal ${isOpen ? "is-active" : ""}`}>
@@ -33,8 +44,9 @@ const Modal = props => {
             ></button>
           </header>
           <section className="modal-card-body">
-            <h1 className="title is-1">{title}</h1>
-            <h1 className="title is-3">{author}</h1>
+            <div className="cover-image-wrapper">
+              <FluidImage fileName={coverImage} />
+            </div>
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </section>
           <footer className="modal-card-foot">

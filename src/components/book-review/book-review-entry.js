@@ -35,6 +35,7 @@ class BookReviewEntry extends React.Component {
         <Modal
           author={author}
           content={content}
+          coverImage={coverImage}
           rating={rating}
           title={title}
           isOpen={this.state.detailsOpen}
