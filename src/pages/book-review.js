@@ -1,5 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import Fuse from "fuse.js";
 
 import Head from "../components/head";
 import Layout from "../components/layout";
@@ -16,8 +17,10 @@ class BookReview extends React.Component {
     this.state = {
       infoOpen: false,
       openDropdown: "",
-      filters: [],
-      sort: "",
+      searchText: "",
+      fuzzySearchResults: ["init"],
+      genre: [],
+      sortOrder: "",
     };
   }
 
@@ -26,11 +29,13 @@ class BookReview extends React.Component {
 
     // Subtract 1 to account for 'info' page in "~/markdown/book-reviews/"
     const totalBooks = data.allMarkdownRemark.totalCount - 1;
-    const filterOptions = {
-      type: ["All", "Fiction", "Non-fiction"],
-      genre: ["Psychology", "Sci-Fi", "Science", "Crime"],
-    };
+    const genreOptions = ["Psychology", "Sci-Fi", "Science", "Crime"];
     const sortOptions = ["Recent", "Best", "Alphabetical"];
+    const fuzzySearchOptions = {
+      threshold: 0.3,
+      keys: ["title", "author", "genre"],
+      id: "title",
+    };
 
     return (
       <Layout>
@@ -72,7 +77,12 @@ class BookReview extends React.Component {
                 <div className="level-left">
                   <div className="level-item">
                     <span>
-                      <b>{totalBooks}</b> books
+                      <b>
+                        {this.state.fuzzySearchResults.includes("init")
+                          ? totalBooks
+                          : this.state.fuzzySearchResults.length}
+                      </b>{" "}
+                      books
                     </span>
                   </div>
                   <div className="level-item">
@@ -80,31 +90,43 @@ class BookReview extends React.Component {
                       className="search-text input"
                       type="text"
                       placeholder="Find a book"
+                      onChange={this._updateSearchText}
+                      onKeyPress={this._searchKeyPress}
                     />
                   </div>
                   <div className="level-item book-search">
-                    <a href="http://google.com" className="button hvr-shrink">
+                    <button
+                      ref={input => (this.searchButton = input)}
+                      className="button hvr-shrink"
+                      onClick={() =>
+                        this._fuzzySearch(
+                          data.allMarkdownRemark.edges
+                            .filter(
+                              ({ node }) => node.frontmatter.type === "entry"
+                            )
+                            .map(({ node }) => ({
+                              title: node.frontmatter.title,
+                              author: node.frontmatter.author,
+                              genre: node.frontmatter.tags,
+                            })),
+                          fuzzySearchOptions
+                        )
+                      }
+                    >
                       Search
-                    </a>
+                    </button>
                   </div>
                 </div>
                 <div className="level-right">
-                  {Object.keys(filterOptions).map((heading, key) => {
-                    const upperCaseHeading =
-                      heading.charAt(0).toUpperCase() + heading.slice(1);
-                    return (
-                      <div className="level-item">
-                        <Dropdown
-                          key={key}
-                          title={upperCaseHeading}
-                          options={filterOptions[heading]}
-                          active={this.state.openDropdown === heading}
-                          toggleDropdown={() => this._toggleDropdown(heading)}
-                          itemClick={this._dropdownItemClick}
-                        />
-                      </div>
-                    );
-                  })}
+                  <div className="level-item">
+                    <Dropdown
+                      title={"Genre"}
+                      options={genreOptions}
+                      active={this.state.openDropdown === "genre"}
+                      toggleDropdown={() => this._toggleDropdown("genre")}
+                      itemClick={this._dropdownItemClick}
+                    />
+                  </div>
                   <div className="level-item">
                     <Dropdown
                       title={"Sort"}
@@ -123,7 +145,14 @@ class BookReview extends React.Component {
             <div className="hero">
               <div className="hero-body entries">
                 {data.allMarkdownRemark.edges
-                  .filter(({ node }) => node.frontmatter.type === "entry")
+                  .filter(
+                    ({ node }) =>
+                      node.frontmatter.type === "entry" &&
+                      (this.state.fuzzySearchResults.includes("init") ||
+                        this.state.fuzzySearchResults.includes(
+                          node.frontmatter.title
+                        ))
+                  )
                   .map(({ node, key }) => (
                     <BookReviewEntry
                       key={key}
@@ -143,6 +172,29 @@ class BookReview extends React.Component {
       </Layout>
     );
   }
+
+  _searchKeyPress = evt => {
+    if (evt.key === "Enter") {
+      this.searchButton.click();
+    }
+  };
+
+  _updateSearchText = evt => {
+    this.setState({
+      searchText: evt.target.value,
+    });
+  };
+
+  _fuzzySearch = (books, options) => {
+    const fuse = new Fuse(books, options);
+    const results = this.state.searchText
+      ? fuse.search(this.state.searchText)
+      : ["init"];
+
+    this.setState({
+      fuzzySearchResults: results,
+    });
+  };
 
   _openModal = () => {
     this.setState({
