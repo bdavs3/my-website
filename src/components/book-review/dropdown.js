@@ -20,7 +20,7 @@ const Dropdown = props => {
         </div>
         <div className="dropdown-menu" id="dropdown-menu" role="menu">
           <div className="dropdown-content">
-            {options.map((value, key) => {
+            {Array.from(options).map((value, key) => {
               return (
                 <button
                   key={key}

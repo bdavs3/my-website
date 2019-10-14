@@ -177,6 +177,17 @@ I needed my book review to be a class because it needs to keep track of state. I
 </p>
 </details>
 
+<details><summary>Mapping genres to the dropdown in the book review</summary>
+<p>
+What I needed was to iterate through the nodes representing my book review markdown files and display the tags (stored as arrays) under the genre dropdown. First of all, the way <b>BookReview</b> is set up, I couldn't figure out how to use standard Javascript to populate an array with the result of my GraphQL query. Otherwise, I would've just iterated through the nodes and the tags within them to push unique values to the <b>genreOptions</b> dropdown. The way I did my query, I had no idea how to do that. I am still really confused about how GraphQL queries interplay with the standard React setup. I don't quite get when the data becomes available and such.
+
+So, the way I figured it, the only way to achieve what I wanted was to directly set the <b>options</b> prop of <b>&lt;Dropdown /&gt;</b> to what it needed to be. Normally that's not bad - you just map the nodes and return some <b>frontmatter</b> field from them. But, this particular frontmatter field was an array. I tried submapping through the tag fields, but nothing was showing up. When I populated a const array with data with the submap and returned that, it was getting returned for every node (book) that came back from GraphQL. I needed to somehow return it from outside the map.
+
+I ended up with a rough solution, but it works! And I learned some things about array methods. First, I realized I needed to do a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap">flatMap</a> to avoid getting arrays in every single dropdown item position. This was almost right, but I was getting back a list with a ton of duplicates (because the snapshot of the <b>genreOptions</b> array was getting returned for every book). What I did was create a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</a> from the ugly array that was formed, and then convert in back to an array when processing it in the actual dropdown. This worked! This is a very rough solution that I don't love. However, when you don't know everything, you sometimes need to create workarounds like this until you gain more knowledge. And I'll never have to manually add to this dropdown now! Anytime I tag a book with a genre I haven't used before, it'll automatically get pulled from my GraphQL layer!
+
+</p>
+</details>
+
 ### Things I Have Learned
 
 _I will be documenting important things I pick up here._

@@ -19,7 +19,7 @@ class BookReview extends React.Component {
       openDropdown: "",
       searchText: "",
       fuzzySearchResults: ["init"],
-      genre: [],
+      genreFilter: [],
       sortOrder: "",
     };
   }
@@ -29,8 +29,9 @@ class BookReview extends React.Component {
 
     // Subtract 1 to account for 'info' page in "~/markdown/book-reviews/"
     const totalBooks = data.allMarkdownRemark.totalCount - 1;
-    const genreOptions = ["Psychology", "Sci-Fi", "Science", "Crime"];
+    const genreOptions = [];
     const sortOptions = ["Recent", "Best", "Alphabetical"];
+    // Learn about how this fuzzy search works at fuse.js
     const fuzzySearchOptions = {
       threshold: 0.3,
       keys: ["title", "author", "genre"],
@@ -121,7 +122,20 @@ class BookReview extends React.Component {
                   <div className="level-item">
                     <Dropdown
                       title={"Genre"}
-                      options={genreOptions}
+                      options={
+                        new Set(
+                          data.allMarkdownRemark.edges
+                            .filter(
+                              ({ node }) => node.frontmatter.type === "entry"
+                            )
+                            .flatMap(({ node }) => {
+                              node.frontmatter.tags.forEach(tag => {
+                                genreOptions.push(tag);
+                              });
+                              return genreOptions;
+                            })
+                        )
+                      }
                       active={this.state.openDropdown === "genre"}
                       toggleDropdown={() => this._toggleDropdown("genre")}
                       itemClick={this._dropdownItemClick}
@@ -217,11 +231,11 @@ class BookReview extends React.Component {
 
   _dropdownItemClick = item => {
     this.setState(state => {
-      const filters = state.filters.includes(item)
-        ? state.filters
-        : state.filters.concat(item);
+      const genreFilters = state.genreFilters.includes(item)
+        ? state.genreFilters
+        : state.genreFilters.concat(item);
       return {
-        filters,
+        genreFilters,
       };
     });
   };
