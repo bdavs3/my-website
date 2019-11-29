@@ -3,7 +3,6 @@ author: "Paul Murray"
 class: "book-review"
 coverImage: "book-cover-images/skippy-dies.jpg"
 date: "2019-08-30"
-rating: 2
 tags: ["Fiction", "Comedy", "Novel"]
 title: "Skippy Dies"
 type: "entry"

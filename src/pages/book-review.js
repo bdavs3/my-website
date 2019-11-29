@@ -30,7 +30,7 @@ class BookReview extends React.Component {
     // Subtract 1 to account for 'info' page in "~/markdown/book-reviews/"
     const totalBooks = data.allMarkdownRemark.totalCount - 1;
     const genreOptions = [];
-    const sortOptions = ["Recent", "Best", "Alphabetical"];
+    const sortOptions = ["Recent", "Alphabetical"];
     // Learn about how this fuzzy search works at fuse.js
     const fuzzySearchOptions = {
       threshold: 0.3,
@@ -67,7 +67,7 @@ class BookReview extends React.Component {
                 className="button info-button hvr-shrink"
                 onClick={() => this._openModal()}
               >
-                My Rating Schema
+                A Quick Word
               </button>
             </div>
           </section>
@@ -174,7 +174,6 @@ class BookReview extends React.Component {
                       content={node.html}
                       coverImage={node.frontmatter.coverImage}
                       excerpt={node.excerpt}
-                      rating={node.frontmatter.rating}
                       tags={node.frontmatter.tags}
                       title={node.frontmatter.title}
                     />
@@ -257,7 +256,6 @@ export default props => (
                 author
                 coverImage
                 date(formatString: "DD MMMM, YYYY")
-                rating
                 tags
                 title
                 type

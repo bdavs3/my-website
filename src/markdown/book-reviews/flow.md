@@ -3,7 +3,6 @@ author: "Mihaly Csikszentmihalyi"
 class: "book-review"
 coverImage: "book-cover-images/flow.jpg"
 date: "2019-09-29"
-rating: 3
 tags: ["Non-fiction", "Psychology", "Philosophy", "Spirituality"]
 title: "Flow: The Psychology of Optimal Experience"
 type: "entry"

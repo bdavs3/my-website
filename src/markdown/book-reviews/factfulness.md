@@ -3,7 +3,6 @@ author: "Hans Rosling"
 class: "book-review"
 coverImage: "book-cover-images/factfulness.jpg"
 date: "2019-10-04"
-rating: 3
 tags: ["Non-fiction", "Humanities", "Data", "Medicine"]
 title: "Factfulness"
 type: "entry"

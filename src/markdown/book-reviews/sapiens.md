@@ -3,7 +3,6 @@ author: "Yuval Noah Harari"
 class: "book-review"
 coverImage: "book-cover-images/sapiens.jpg"
 date: "2019-08-12"
-rating: 3
 tags: ["Non-fiction", "Anthropology", "History", "Human Evolution"]
 title: "Sapiens"
 type: "entry"

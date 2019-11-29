@@ -1,23 +1,11 @@
 import React from "react";
-import _ from "lodash";
-import { StaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
 
 import FluidImage from "../utilities/fluid-image";
 
 import "./styles/modal.scss";
 
 const Modal = props => {
-  const {
-    data,
-    author,
-    content,
-    coverImage,
-    rating,
-    title,
-    isOpen,
-    closeModal,
-  } = props;
+  const { author, content, coverImage, title, isOpen, closeModal } = props;
   return (
     <div className="modal-wrapper">
       <div className={`modal ${isOpen ? "is-active" : ""}`}>
@@ -26,15 +14,7 @@ const Modal = props => {
           <header className="modal-card-head">
             <div className="modal-card-title">
               <b>{title}</b>
-              {_.times(rating, () => (
-                <Img
-                  className="rating-star"
-                  fixed={data.rating_star.childImageSharp.fixed}
-                />
-              ))}
-
               <br />
-
               {` by ${author}`}
             </div>
             <button
@@ -60,19 +40,20 @@ const Modal = props => {
   );
 };
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        rating_star: file(relativePath: { eq: "rating-star.png" }) {
-          childImageSharp {
-            fixed(width: 18, height: 18) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-      }
-    `}
-    render={data => <Modal data={data} {...props} />}
-  />
-);
+export default Modal;
+// export default props => (
+//   <StaticQuery
+//     query={graphql`
+//       query {
+//         rating_star: file(relativePath: { eq: "rating-star.png" }) {
+//           childImageSharp {
+//             fixed(width: 18, height: 18) {
+//               ...GatsbyImageSharpFixed
+//             }
+//           }
+//         }
+//       }
+//     `}
+//     render={data => <Modal data={data} {...props} />}
+//   />
+// );

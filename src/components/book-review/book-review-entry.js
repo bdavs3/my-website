@@ -1,7 +1,4 @@
 import React from "react";
-import _ from "lodash";
-import { StaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
 
 import FluidImage from "../utilities/fluid-image";
 import Modal from "./modal";
@@ -19,16 +16,7 @@ class BookReviewEntry extends React.Component {
   }
 
   render() {
-    const {
-      data,
-      author,
-      content,
-      coverImage,
-      excerpt,
-      rating,
-      title,
-      tags,
-    } = this.props;
+    const { author, content, coverImage, excerpt, title, tags } = this.props;
 
     return (
       <div className="book-review-entry-wrapper">
@@ -36,7 +24,6 @@ class BookReviewEntry extends React.Component {
           author={author}
           content={content}
           coverImage={coverImage}
-          rating={rating}
           title={title}
           isOpen={this.state.detailsOpen}
           closeModal={this._closeDetails}
@@ -50,19 +37,9 @@ class BookReviewEntry extends React.Component {
                 </div>
                 <div className="column is-10">
                   <strong>{title}</strong>
-                  {_.times(rating, () => (
-                    <Img
-                      className="rating-star"
-                      fixed={data.rating_star.childImageSharp.fixed}
-                    />
-                  ))}
-
                   <br />
-
                   <small>{author}</small>
-
                   <br />
-
                   {excerpt}
                   <strong className="read-more" onClick={this._openDetails}>
                     {" Read more"}
@@ -94,19 +71,4 @@ class BookReviewEntry extends React.Component {
   };
 }
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        rating_star: file(relativePath: { eq: "rating-star.png" }) {
-          childImageSharp {
-            fixed(width: 18, height: 18) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-      }
-    `}
-    render={data => <BookReviewEntry data={data} {...props} />}
-  />
-);
+export default BookReviewEntry;
