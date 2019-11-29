@@ -120,6 +120,14 @@ class BookReview extends React.Component {
                   </div>
                 </div>
                 <div className="level-right">
+                  <div className="level-item clear-filters">
+                    <button
+                      className="button hvr-shrink"
+                      onClick={this._clearFilters}
+                    >
+                      Clear Filters
+                    </button>
+                  </div>
                   <div className="level-item">
                     <Dropdown
                       title={"Type"}
@@ -266,6 +274,8 @@ class BookReview extends React.Component {
   };
 
   _dropdownItemClick = (item, actionType) => {
+    this._closeDropdowns();
+
     if (actionType === "filter") {
       this.setState(state => {
         const genreFilters = state.genreFilters.includes(item)
@@ -280,6 +290,18 @@ class BookReview extends React.Component {
         sortOrder: item,
       });
     }
+  };
+
+  _closeDropdowns = () => {
+    this.setState({
+      openDropdown: "",
+    });
+  };
+
+  _clearFilters = () => {
+    this.setState({
+      genreFilters: [],
+    });
   };
 }
 

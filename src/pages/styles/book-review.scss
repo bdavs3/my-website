@@ -15,7 +15,8 @@
     box-shadow: none;
   }
 
-  .book-search button {
+  .book-search button,
+  .clear-filters button {
     background-color: $golden-brown;
     color: white;
     &:hover,
@@ -23,6 +24,7 @@
     &:focus {
       color: white !important;
       box-shadow: none !important;
+      border-color: $golden-brown !important;
     }
   }
 
