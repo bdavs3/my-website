@@ -3,7 +3,7 @@ import React from "react";
 import "./styles/dropdown.scss";
 
 const Dropdown = props => {
-  const { title, options, active, toggleDropdown, itemClick } = props;
+  const { title, options, active, type, toggleDropdown, itemClick } = props;
 
   return (
     <div className="dropdown-wrapper">
@@ -25,7 +25,7 @@ const Dropdown = props => {
                 <button
                   key={key}
                   className="dropdown-item"
-                  onClick={() => itemClick(value)}
+                  onClick={() => itemClick(value, type)}
                 >
                   {value}
                 </button>

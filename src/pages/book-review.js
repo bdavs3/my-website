@@ -19,7 +19,7 @@ class BookReview extends React.Component {
       openDropdown: "",
       searchText: "",
       fuzzySearchResults: ["init"],
-      genreFilter: [],
+      genreFilters: [],
       sortOrder: "",
     };
   }
@@ -29,6 +29,7 @@ class BookReview extends React.Component {
 
     // Subtract 1 to account for 'info' page in "~/markdown/book-reviews/"
     const totalBooks = data.allMarkdownRemark.totalCount - 1;
+    const typeOptions = ["Fiction", "Non-fiction"];
     const genreOptions = [];
     const sortOptions = ["Recent", "Alphabetical"];
     // Learn about how this fuzzy search works at fuse.js
@@ -121,6 +122,16 @@ class BookReview extends React.Component {
                 <div className="level-right">
                   <div className="level-item">
                     <Dropdown
+                      title={"Type"}
+                      options={typeOptions}
+                      active={this.state.openDropdown === "type"}
+                      type="filter"
+                      toggleDropdown={() => this._toggleDropdown("type")}
+                      itemClick={this._dropdownItemClick}
+                    />
+                  </div>
+                  <div className="level-item">
+                    <Dropdown
                       title={"Genre"}
                       options={
                         new Set(
@@ -130,13 +141,19 @@ class BookReview extends React.Component {
                             )
                             .flatMap(({ node }) => {
                               node.frontmatter.tags.forEach(tag => {
-                                genreOptions.push(tag);
+                                if (
+                                  tag !== "Fiction" &&
+                                  tag !== "Non-fiction"
+                                ) {
+                                  genreOptions.push(tag);
+                                }
                               });
                               return genreOptions;
                             })
                         )
                       }
                       active={this.state.openDropdown === "genre"}
+                      type="filter"
                       toggleDropdown={() => this._toggleDropdown("genre")}
                       itemClick={this._dropdownItemClick}
                     />
@@ -146,6 +163,7 @@ class BookReview extends React.Component {
                       title={"Sort"}
                       options={sortOptions}
                       active={this.state.openDropdown === "sort"}
+                      type="sort"
                       toggleDropdown={() => this._toggleDropdown("sort")}
                       itemClick={this._dropdownItemClick}
                     />
@@ -159,6 +177,7 @@ class BookReview extends React.Component {
             <div className="hero">
               <div className="hero-body entries">
                 {data.allMarkdownRemark.edges
+                  // omit the "info" markdown post
                   .filter(
                     ({ node }) =>
                       node.frontmatter.type === "entry" &&
@@ -167,6 +186,24 @@ class BookReview extends React.Component {
                           node.frontmatter.title
                         ))
                   )
+                  // filter by genre
+                  .filter(
+                    ({ node }) =>
+                      node.frontmatter.tags.some(element =>
+                        this.state.genreFilters.includes(element)
+                      ) || this.state.genreFilters.length === 0
+                  )
+                  .sort((a, b) => {
+                    if (this.state.sortOrder === "Alphabetical") {
+                      return a.node.frontmatter.title < b.node.frontmatter.title
+                        ? -1
+                        : 1;
+                    } else {
+                      return a.node.frontmatter.date < b.node.frontmatter.date
+                        ? -1
+                        : 1;
+                    }
+                  })
                   .map(({ node, key }) => (
                     <BookReviewEntry
                       key={key}
@@ -228,15 +265,21 @@ class BookReview extends React.Component {
     });
   };
 
-  _dropdownItemClick = item => {
-    this.setState(state => {
-      const genreFilters = state.genreFilters.includes(item)
-        ? state.genreFilters
-        : state.genreFilters.concat(item);
-      return {
-        genreFilters,
-      };
-    });
+  _dropdownItemClick = (item, actionType) => {
+    if (actionType === "filter") {
+      this.setState(state => {
+        const genreFilters = state.genreFilters.includes(item)
+          ? state.genreFilters
+          : state.genreFilters.concat(item);
+        return {
+          genreFilters,
+        };
+      });
+    } else {
+      this.setState({
+        sortOrder: item,
+      });
+    }
   };
 }
 
