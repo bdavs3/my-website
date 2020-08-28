@@ -74,6 +74,13 @@ class BookReview extends React.Component {
           </section> */}
 
           <section className="section">
+            <div className="container has-text-centered">
+              <span className="filter-label">Filters: </span>
+              {this.state.genreFilters.join(", ")}
+            </div>
+          </section>
+
+          <section className="section">
             <div className="container level-holder">
               <nav className="level">
                 <div className="level-left">
