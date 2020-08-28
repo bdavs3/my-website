@@ -62,7 +62,7 @@ class BookReview extends React.Component {
             <h1 className="title is-1 has-text-centered">Book Review</h1>
           </section>
 
-          <section className="section" onClick={() => this._toggleDropdown("")}>
+          {/* <section className="section" onClick={() => this._toggleDropdown("")}>
             <div className="container has-text-centered">
               <button
                 className="button info-button hvr-shrink"
@@ -71,7 +71,7 @@ class BookReview extends React.Component {
                 A Quick Word
               </button>
             </div>
-          </section>
+          </section> */}
 
           <section className="section">
             <div className="container level-holder">
