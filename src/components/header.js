@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import HeaderLogo from "./header-logo";
-
 import "./styles/header.scss";
 
 class Header extends React.Component {
@@ -25,7 +23,7 @@ class Header extends React.Component {
           >
             <div className="navbar-brand">
               <Link className="logo-link" to="/">
-                <HeaderLogo />
+                <h1 className="site-title">Ben Davis</h1>
               </Link>
 
               <button
