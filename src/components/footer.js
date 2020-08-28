@@ -69,9 +69,9 @@ const Footer = () => (
             </div>
           </div>
         </div>
-        <div className="copyright container has-text-centered">
+        {/* <div className="copyright container has-text-centered">
           Copyright 2019 Ben Davis
-        </div>
+        </div> */}
       </div>
     </footer>
   </div>
