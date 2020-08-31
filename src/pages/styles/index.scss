@@ -1,41 +1,8 @@
 @import "../../utilities/variables";
 
 .index-wrapper {
-  .title {
-    font-family: Ostrich Sans;
-    font-weight: normal !important;
-    font-style: normal;
-  }
-
-  .navigator-item {
-    background-color: $golden-brown;
-    padding: $index-column-padding;
-    &:not(last-child) {
-      margin-right: 5px;
-    }
-    @media screen and (max-width: 768px) {
-      margin-top: 5px;
-    }
-  }
-
-  .navigator-heading {
-    font-size: 4rem;
-    color: white;
-    margin: 12px 0 0 0;
-  }
-
-  .hero-body {
-    padding: 24px;
-  }
-
-  .main-img {
-    height: calc(100vh - 195px) !important;
-    @media screen and (max-width: 768px) {
-      height: calc(100vh - 420px) !important;
-    }
-  }
-
-  .content {
-    height: calc(100vh) !important;
+  padding: 5% 0%;
+  .index-section {
+    padding: 0% 10%;
   }
 }
