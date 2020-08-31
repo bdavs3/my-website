@@ -96,6 +96,7 @@ class BookReview extends React.Component {
                   </div> */}
                   <div className="level-item">
                     <input
+                      ref="txtSearch"
                       className="search-text input"
                       type="text"
                       placeholder="Find a book"
@@ -123,6 +124,14 @@ class BookReview extends React.Component {
                       }
                     >
                       Search
+                    </button>
+                  </div>
+                  <div className="level-item book-search">
+                    <button
+                      className="button hvr-shrink"
+                      onClick={this._clearSearch}
+                    >
+                      Clear Search
                     </button>
                   </div>
                 </div>
@@ -311,6 +320,13 @@ class BookReview extends React.Component {
   _clearFilters = () => {
     this.setState({
       genreFilters: [],
+    });
+  };
+
+  _clearSearch = () => {
+    this.refs.txtSearch.value = "";
+    this.setState({
+      fuzzySearchResults: ["init"],
     });
   };
 }
