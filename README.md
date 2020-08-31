@@ -3,18 +3,19 @@
 [Description](#description)\
 [Road-blocks](#road-blocks)\
 [Things I Have Learned](#things-i-have-learned)\
-[Todo](#todo)
 
 ### Description
 
-This repository contains the code for my personal website, which I currently have a lot of mismatched plans for. The site is currently being built using [Gatsby](https://www.gatsbyjs.org/), [React](https://reactjs.org/), and [BulmaCSS](https://bulma.io/).\
-Some things I'd possibly like on the site are:
+This repository contains the code for my personal website, which I currently have a lot of mismatched plans for. The site is currently being built using [Gatsby](https://www.gatsbyjs.com/), [React](https://reactjs.org/), and [BulmaCSS](https://bulma.io/).\
+Some things I'd planned for the site were:
 
 - My software development portfolio
 - A book review section
-- A blog where I can write
+- A blog
 - Pictures
 - Music that I make / a music review section
+
+Most of that didn't pan out, as I had a lot to learn, but I plan on getting there in a future re-do of this project.
 
 ### Road-blocks
 
@@ -316,10 +317,3 @@ I added this script to <b>package.json</b> because it is useful to have it in sh
 - Check unique key warning on book review and warning on lazy loading images
 - In the mobile book review, line up the dropdowns horizontally instead of stacking them
 - Add some light animations to the book review
-
-### Next Tasks
-
-- Enable sorting and searching books
-  - Adjust 'total count' label when filtering / searching books
-  - Add selected filters to a horizontal bar above reviews
-    - Allow these filters to be removed by clicking them
