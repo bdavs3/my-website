@@ -28,7 +28,7 @@ class BookReview extends React.Component {
     const { data } = this.props;
 
     // Subtract 1 to account for 'info' page in "~/markdown/book-reviews/"
-    const totalBooks = data.allMarkdownRemark.totalCount - 1;
+    //const totalBooks = data.allMarkdownRemark.totalCount - 1;
     const typeOptions = ["Fiction", "Non-fiction"];
     const genreOptions = [];
     const sortOptions = ["Recent", "Alphabetical"];

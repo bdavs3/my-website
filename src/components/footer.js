@@ -50,7 +50,7 @@ const Footer = () => (
               </div>
               <div className="column is-one-quarter">
                 <a
-                  href="https://www.linkedin.com/in/ben-davis-a34a55149/"
+                  href="https://www.linkedin.com/in/bdavs3/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
