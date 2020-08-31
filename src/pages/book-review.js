@@ -84,7 +84,7 @@ class BookReview extends React.Component {
             <div className="container level-holder">
               <nav className="level">
                 <div className="level-left">
-                  <div className="level-item">
+                  {/* <div className="level-item">
                     <span>
                       <b>
                         {this.state.fuzzySearchResults.includes("init")
@@ -93,7 +93,7 @@ class BookReview extends React.Component {
                       </b>{" "}
                       books
                     </span>
-                  </div>
+                  </div> */}
                   <div className="level-item">
                     <input
                       className="search-text input"
@@ -241,6 +241,9 @@ class BookReview extends React.Component {
   _searchKeyPress = evt => {
     if (evt.key === "Enter") {
       this.searchButton.click();
+      this.setState({
+        genreFilters: [],
+      });
     }
   };
 
