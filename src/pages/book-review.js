@@ -174,6 +174,14 @@ class BookReview extends React.Component {
                       itemClick={this._dropdownItemClick}
                     />
                   </div>
+                  <div className="level-item clear-filters">
+                    <button
+                      className="button hvr-shrink"
+                      onClick={this._clearFilters}
+                    >
+                      Clear Filters
+                    </button>
+                  </div>
                   <div className="level-item">
                     <Dropdown
                       title={"Sort"}
@@ -183,14 +191,6 @@ class BookReview extends React.Component {
                       toggleDropdown={() => this._toggleDropdown("sort")}
                       itemClick={this._dropdownItemClick}
                     />
-                  </div>
-                  <div className="level-item clear-filters">
-                    <button
-                      className="button hvr-shrink"
-                      onClick={this._clearFilters}
-                    >
-                      Clear Filters
-                    </button>
                   </div>
                 </div>
               </nav>
