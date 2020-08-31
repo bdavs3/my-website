@@ -25,7 +25,7 @@ const IndexPage = () => (
               <FluidImage fileName="headshot.jpg" />
             </div>
           </div>
-          <div className="column">
+          <div className="column" data-aos="fade-up">
             <p>
               Hi! I'm <span className="name">Ben</span>, a software developer
               originally from Phoenix, AZ. I have been living in Los Angeles
@@ -39,10 +39,14 @@ const IndexPage = () => (
           </div>
         </div>
       </section>
-      <section className="section index-section" style={{ paddingTop: "25px" }}>
+      <section
+        className="section index-section"
+        style={{ paddingTop: "25px" }}
+        data-aos="fade-up"
+      >
         <h1 className="is-centered">Some of my favorite things...</h1>
         <div className="columns" style={{ paddingTop: "25px" }}>
-          <div className="column">
+          <div className="column" data-aos="fade-up">
             <h2>Coding</h2>
             <IconContext.Provider
               value={{ className: "react-icons center-horizontal" }}
@@ -50,7 +54,7 @@ const IndexPage = () => (
               <BsCodeSlash />
             </IconContext.Provider>
           </div>
-          <div className="column">
+          <div className="column" data-aos="fade-up">
             <h2>Running</h2>
             <IconContext.Provider
               value={{ className: "react-icons center-horizontal" }}
@@ -58,7 +62,7 @@ const IndexPage = () => (
               <BiRun />
             </IconContext.Provider>
           </div>
-          <div className="column">
+          <div className="column" data-aos="fade-up">
             <h2>Music Production</h2>
             <IconContext.Provider
               value={{ className: "react-icons center-horizontal" }}

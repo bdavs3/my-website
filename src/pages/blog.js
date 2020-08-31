@@ -1,4 +1,5 @@
 import React from "react";
+import AOS from "Aos";
 import { Link, graphql } from "gatsby";
 
 import Head from "../components/head";
@@ -6,6 +7,8 @@ import Layout from "../components/layout";
 
 import "../styles.scss";
 import "./styles/blog.scss";
+
+AOS.init();
 
 const Blog = ({ data }) => {
   return (
@@ -18,7 +21,7 @@ const Blog = ({ data }) => {
         <section className="section">
           <section className="hero">
             {data.allMarkdownRemark.edges.map(({ node }) => (
-              <section key={node.id} className="hero-body">
+              <section key={node.id} className="hero-body" data-aos="fade-up">
                 <h3>
                   <Link to={node.fields.slug}>{node.frontmatter.title}</Link>{" "}
                   <span>— {node.frontmatter.date}</span>
