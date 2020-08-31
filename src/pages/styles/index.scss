@@ -5,4 +5,42 @@
   .index-section {
     padding: 0% 10%;
   }
+
+  .gatsby-image-wrapper {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+  }
+
+  .name {
+    color: $golden-brown;
+    font-weight: bold;
+  }
+
+  h1 {
+    text-align: center;
+    color: $golden-brown;
+    font-weight: bold;
+  }
+
+  h2 {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .react-icons {
+    color: $golden-brown;
+    width: 5em;
+    height: 5em;
+  }
+
+  .center-horizontal {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
 }
