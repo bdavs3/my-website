@@ -1,5 +1,4 @@
 import React from "react";
-import AOS from "Aos";
 import { IconContext } from "react-icons";
 import { BsCodeSlash, BsMusicNoteBeamed } from "react-icons/bs";
 import { BiRun } from "react-icons/bi";
@@ -9,10 +8,7 @@ import Layout from "../components/layout";
 
 import "../styles.scss";
 import "./styles/index.scss";
-import "aos/dist/aos.css";
 import FluidImage from "../components/utilities/fluid-image";
-
-AOS.init();
 
 const IndexPage = () => (
   <Layout>
@@ -25,7 +21,7 @@ const IndexPage = () => (
               <FluidImage fileName="headshot.jpg" />
             </div>
           </div>
-          <div className="column" data-aos="fade-up">
+          <div className="column">
             <p>
               Hi! I'm <span className="name">Ben</span>, a software developer
               originally from Phoenix, AZ. I have been living in Los Angeles
@@ -46,14 +42,10 @@ const IndexPage = () => (
           </div>
         </div>
       </section>
-      <section
-        className="section index-section"
-        style={{ paddingTop: "25px" }}
-        data-aos="fade-up"
-      >
+      <section className="section index-section" style={{ paddingTop: "25px" }}>
         <h1 className="is-centered">Some of my favorite things...</h1>
         <div className="columns" style={{ paddingTop: "25px" }}>
-          <div className="column" data-aos="fade-up">
+          <div className="column">
             <h2>Coding</h2>
             <IconContext.Provider
               value={{ className: "react-icons center-horizontal" }}
@@ -61,7 +53,7 @@ const IndexPage = () => (
               <BsCodeSlash />
             </IconContext.Provider>
           </div>
-          <div className="column" data-aos="fade-up">
+          <div className="column">
             <h2>Running</h2>
             <IconContext.Provider
               value={{ className: "react-icons center-horizontal" }}
@@ -69,7 +61,7 @@ const IndexPage = () => (
               <BiRun />
             </IconContext.Provider>
           </div>
-          <div className="column" data-aos="fade-up">
+          <div className="column">
             <h2>Music Production</h2>
             <IconContext.Provider
               value={{ className: "react-icons center-horizontal" }}

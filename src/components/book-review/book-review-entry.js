@@ -1,13 +1,10 @@
 import React from "react";
-import AOS from "aos";
 
 import FluidImage from "../utilities/fluid-image";
 import Modal from "./modal";
 import Tag from "./tag";
 
 import "./styles/book-review-entry.scss";
-
-AOS.init();
 
 class BookReviewEntry extends React.Component {
   constructor(props) {
@@ -31,7 +28,7 @@ class BookReviewEntry extends React.Component {
           isOpen={this.state.detailsOpen}
           closeModal={this._closeDetails}
         />
-        <div className="box" onClick={this._openDetails} data-aos="fade-up">
+        <div className="box" onClick={this._openDetails}>
           <article className="media">
             <div className="media-content">
               <div className="columns">
