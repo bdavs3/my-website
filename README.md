@@ -2,7 +2,7 @@
 
 [Description](#description)\
 [Road-blocks](#road-blocks)\
-[Things I Have Learned](#things-i-have-learned)\
+[Things I Have Learned](#things-i-have-learned)
 
 ### Description
 
