@@ -29,13 +29,12 @@ const Footer = () => (
               </ul>
             </aside>
           </div>
-          <div className="column">
+          {/* <div className="column">
             <h1 className="footer-heading">CONTACT</h1>
             <ul className="footer-item">
               <li>example@gmail.com</li>
-              <li>(123) 456-7890</li>
             </ul>
-          </div>
+          </div> */}
           <div className="column">
             <h1 className="footer-heading">CONNECT</h1>
             <div className="columns is-mobile">
@@ -68,6 +67,7 @@ const Footer = () => (
               </div>
             </div>
           </div>
+          <div className="column"></div>
         </div>
         {/* <div className="copyright container has-text-centered">
           Copyright 2019 Ben Davis
