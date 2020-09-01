@@ -21,6 +21,7 @@
     "gatsby-source-filesystem": "^2.1.5",
     "gatsby-transformer-remark": "^2.6.6",
     "gatsby-transformer-sharp": "^2.2.3",
+    "gh-pages": "^3.1.0",
     "hover.css": "^2.3.2",
     "lodash": "4.17.14",
     "node-sass": "^4.12.0",
@@ -54,7 +55,8 @@
     "start": "yarn run develop",
     "start-for-mobile": "gatsby develop -o -H $HOSTNAME -p 8000",
     "serve": "gatsby serve",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "repository": {
     "type": "git",
