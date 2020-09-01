@@ -33,8 +33,15 @@ const IndexPage = () => (
               2015. After graduating, I moved to the sleepy beach town of El
               Segundo. <br /> <br />
               This website serves as a way to keep track of my thoughts from
-              time to time. If you'd like to get in touch, your best bet is to
-              reach out to my email, which can be found in the footer.
+              time to time. You can view the source code for it{" "}
+              <a
+                href="https://github.com/bdavs3/my-website"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                here
+              </a>
+              .
             </p>
           </div>
         </div>

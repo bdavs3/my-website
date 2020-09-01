@@ -285,7 +285,7 @@ Oh, also I need to commit more often. I tend to just commit when I feel like I'v
 
 <details><summary>Testing a development site on mobile</summary>
 <p>
-I thought it wouldn't be bad to hop on a localhost port if your iPhone is on the network as your computer (I was encouraged by <a href="https://stackoverflow.com/questions/3132105/how-do-you-access-a-website-running-on-localhost-from-iphone-browser">this thread</a>. Alas, I couldn't get it to work. But then I found this absolutely awesome solution in <a href="">this thread</a>.
+I thought it wouldn't be bad to hop on a localhost port if your iPhone is on the network as your computer (I was encouraged by <a href="https://stackoverflow.com/questions/3132105/how-do-you-access-a-website-running-on-localhost-from-iphone-browser">this thread</a>). Alas, I couldn't get it to work. But then I found this absolutely awesome solution in <a href="">this thread</a>.
 
 ```sh
 gatsby develop -o -H $HOSTNAME -p 8000
