@@ -11,7 +11,7 @@ type: "entry"
 Tara Westover's childhood is shaped by a ruthless father and acquiescent mother. Before the main text begins, we read a disclaimer that the book is not about Mormonism. But Mormonism is what Tara's father, Gene, draws upon in any of the instances when he shames Tara for being a whore, denies medical care and education to his children, or blames the government for an array of conspiracies against honest, god-fearing citizens like himself. My instinct is that Tara included this disclaimer not to ironically condemn Mormonism, but rather to separate people like her father from those who don't use faith as an excuse for contemptible or illogical action.
 <br />
 <br />
-Many of us go through life wishing to be different than everyone else so that we can stand out as an icon in a cookie-cutter society. At least I do. Technological advances brought us social media, which does little more than to make us wish we were one of the people that gets endless validation for everything they do. But as for the people doing all the validating... few of them will every stand out. Tara never had to choose to be different. Her circumstances, built on survivalist and extremist foundations, immediately separated her from any other person she could ever hope to meet. This is why her outlook on dance class is interesting to me:
+Many of us go through life wishing to be different than everyone else so that we can stand out as an icon in a cookie-cutter society. At least I do. Technological advances brought us social media, which does little more than to make us wish we were one of the people that gets endless validation for everything they do. But as for the people doing all the validating... few of them will ever stand out. Tara never had to choose to be different. Her circumstances, built on survivalist and extremist foundations, immediately separated her from any other person she could ever hope to meet. This is why her outlook on dance class is interesting to me:
 <br/>
 <br/>
 <b>"I loved the sensation of conformity. Learning to dance felt like learning to belong."</b>
@@ -35,13 +35,13 @@ In an interview with Tara that I found on Youtube, she said this:
 <b>"An educated person is not someone that can recite an army of facts and knows a lot of things, but rather it is someone that has the flexibility of mind. Someone that is willing to explore her own prejudice and has acquired a depth of understanding that allows her to see the world through another point of view."</b>
 <br/>
 <br/>
-Interestingly, I also recently came across the other quote from Vitalik Buterin (the created of the cryptocurrency Ethereum), which strongly reminded me of Tara's:
+Interestingly, I also recently came across the other quote from Vitalik Buterin (the creator of the cryptocurrency Ethereum), which strongly reminded me of Tara's:
 <br/>
 <br/>
 <b>"Education is ultimately much more than simply memorizing individual facts or even learning individual concepts. What matters most: learning how to think, learning how to reason, and learning how to learn."</b>
 <br/>
 <br/>
-It is this emphasis on process over result that I believe individuals to fully reach their potentials.
+It is this emphasis on process over result that I believe enables individuals to fully reach their potentials.
 <br />
 <br />
 Favorite quotes from "Educated":

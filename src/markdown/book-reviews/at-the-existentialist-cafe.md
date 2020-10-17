@@ -14,7 +14,7 @@ Existentialism is my favorite philosophical school of thought that I have discov
 I was immediately hooked when I first read the descriptions of the ways that early existentialists in France would go about their days, hanging out in cafes to debate philosophical ideas and later attending jazz clubs to dance, drink, and chat. At these clubs,
 <br />
 <br />
-<b>"...they would admit anyone 'so long as they were interesting - that is, if they had a book under their arm.'"</b>
+<b>"...they would admit anyone so long as they were interesting - that is, if they had a book under their arm.'"</b>
 <br />
 <br />
 This is all very indie. The existentialists were a creative bunch, constantly reading, writing, making music, and dancing. They were the type of people that you can count on having late-night intellectual talks with. I'm in. I wanna hang out with these people.
