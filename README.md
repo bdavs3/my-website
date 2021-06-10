@@ -17,6 +17,13 @@ Some things I'd planned for the site were:
 
 Most of that didn't pan out, as I had a lot to learn, but I plan on getting there in a future re-do of this project.
 
+### Building
+
+Build new versions of the site with:
+```sh
+npm run deploy # see package.json for the script this executes
+```
+
 ### Road-blocks
 
 _I will be documenting things that I struggle with here._
