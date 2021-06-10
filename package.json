@@ -31,7 +31,8 @@
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "react-icons": "^3.11.0"
+    "react-icons": "^3.11.0",
+    "sharp": "^0.28.3"
   },
   "devDependencies": {
     "babel-jest": "^24.8.0",

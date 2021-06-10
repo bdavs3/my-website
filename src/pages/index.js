@@ -23,10 +23,9 @@ const IndexPage = () => (
           </div>
           <div className="column">
             <p>
-              Hi! I'm <span className="name">Ben</span>, a software developer
-              originally from Phoenix, AZ. I have been living in Los Angeles
-              since I started at Loyola Marymount University in the Fall of
-              2015. After graduating, I moved to the sleepy beach town of El
+              Hi! I'm Ben, a software developer originally from Phoenix, AZ. 
+              I have also spent several years living in Los Angeles, first at
+              Loyola Marymount University, then in the beach town of El
               Segundo. <br /> <br />
               This website serves as a way to keep track of my thoughts from
               time to time. You can view the source code for it{" "}

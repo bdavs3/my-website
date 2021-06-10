@@ -21,7 +21,7 @@ Most of that didn't pan out, as I had a lot to learn, but I plan on getting ther
 
 Build new versions of the site with:
 ```sh
-npm run deploy # see package.json for the script this executes
+yarn run deploy # see package.json for the script this executes
 ```
 
 ### Road-blocks
